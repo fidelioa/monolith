@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Archives</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a.active {
+            color: var(--hover-color);
+            border-bottom: 1px solid var(--hover-color);
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .archive-header {
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .meta-info {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        /* Subject Index Layout */
+        .subject-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .subject-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 15px 0;
+            border-bottom: 1px dashed var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .subject-row:hover {
+            border-bottom-color: var(--accent-color);
+        }
+
+        .subject-title {
+            font-size: 1.25rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .subject-row:hover .subject-title {
+            color: var(--hover-color);
+        }
+
+        .subject-path {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://ankitx007x.github.io/monolith/">Home</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/archives.html" class="active">Archives</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="archive-header">
+            <h1>Archives</h1>
+            <p class="meta-info">Index of structured knowledge bases.</p>
+        </section>
+
+        <section class="content">
+            <div class="subject-list">
+                
+                <a href="https://ankitx007x.github.io/monolith/forensic/" class="subject-row">
+                    <span class="subject-title">Forensic Medicine</span>
+                    <span class="subject-path">/forensic</span>
+                </a>
+
+                <a href="https://ankitx007x.github.io/monolith/commed/" class="subject-row">
+                    <span class="subject-title">Community Medicine</span>
+                    <span class="subject-path">/commed</span>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
