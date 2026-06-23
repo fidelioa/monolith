@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — About</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a.active {
+            color: var(--hover-color);
+            border-bottom: 1px solid var(--hover-color);
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Profile Section */
+        .profile-header {
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .sub-label {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 0.9rem;
+        }
+
+        /* Bio Content */
+        .bio-content {
+            font-size: 1.05rem;
+            color: #cccccc;
+            max-width: 650px;
+            margin-bottom: 50px;
+        }
+
+        .bio-content p {
+            margin-bottom: 20px;
+        }
+
+        /* External Links */
+        .links-section {
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+        }
+
+        .links-title {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .social-links a {
+            font-family: var(--font-mono);
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://ankitx007x.github.io/monolith/">Home</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/archives/">Archives</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/about/" class="active">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="profile-header">
+            <h1>Ankit</h1>
+            <p class="sub-label">Operator // Curator</p>
+        </section>
+
+        <section class="bio-content">
+            <p>
+                An architecture of curated distractions. I watch movies—arguably far too many of them—and open a book every now and then to pretend I'm grounded in reality. 
+            </p>
+            <p>
+                Most of my energy goes toward the art of dynamic procrastination, actively avoiding the books I actually <em>have</em> to read. But structural demands inevitably catch up. When you gotta go, you gotta go. This space exists because of those moments.
+            </p>
+        </section>
+
+        <section class="links-section">
+            <h2 class="links-title">External Feeds</h2>
+            <ul class="social-links">
+                <li><a href="https://letterboxd.com/ankitx" target="_blank">→ Letterboxd</a></li>
+                <li><a href="https://www.goodreads.com/user/show/151452764-ankit" target="_blank">→ Goodreads</a></li>
+                <li><a href="https://instagram.com/i_is_ankit" target="_blank">→ Instagram</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
+
