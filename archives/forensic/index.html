@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Forensic Medicine</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        /* Topics Layout */
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .topic-row {
+            display: flex;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px dashed var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .topic-row:hover {
+            border-bottom-color: var(--accent-color);
+        }
+
+        .topic-number {
+            font-family: var(--font-mono);
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .topic-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .topic-row:hover .topic-title {
+            color: var(--hover-color);
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://ankitx007x.github.io/monolith">Home</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="subject-header">
+            <div class="breadcrumb"><a href="https://ankitx007x.github.io/monolith/archives">Archives</a> / Forensic</div>
+            <h1>Forensic Medicine</h1>
+        </section>
+
+        <section class="content">
+            <div class="topic-list">
+                
+                <a href="https://ankitx007x.github.io/monolith/archives/forensic/autopsy" class="topic-row">
+                    <span class="topic-number">[01]</span>
+                    <span class="topic-title">Autopsy and Artifacts</span>
+                </a>
+
+                <a href="https://ankitx007x.github.io/monolith/archives/forensic/asphyxial-deaths" class="topic-row">
+                    <span class="topic-number">[02]</span>
+                    <span class="topic-title">Asphyxial Deaths</span>
+                </a>
+
+                <a href="https://ankitx007x.github.io/monolith/archives/forensic/trauma" class="topic-row">
+                    <span class="topic-number">[03]</span>
+                    <span class="topic-title">Trauma</span>
+                </a>
+
+                <a href="https://ankitx007x.github.io/monolith/archives/forensic/sexual-offences" class="topic-row">
+                    <span class="topic-number">[04]</span>
+                    <span class="topic-title">Sexual Offences</span>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
