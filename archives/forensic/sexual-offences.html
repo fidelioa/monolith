@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Sexual Offences</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .flow-step {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #cccccc;
+            background: #111111;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 4px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            margin: 4px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://ankitx007x.github.io/monolith">Home</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://ankitx007x.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://ankitx007x.github.io/monolith/archives">Archives</a> / 
+                <a href="https://ankitx007x.github.io/monolith/archives/forensic/index.html">Forensic</a> / Sexual Offences
+            </div>
+            <h1>Sexual Offences</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Fast Track Clinical Science - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions Bank (TU IOM)</h2>
+        <ol style="margin-bottom: 20px; color: #a5a5a5; font-size: 0.9rem;">
+            <li>A 15 years female comes to you with history of rape by a stranger 4 hrs ago. How would you proceed to examine the alleged victim? What samples would you collect for lab investigations that would be useful to identify the assailant? (2+2=4, 2073/10)[cite: 2]</li>
+            <li>Define rape according to "Muluki-Ain". Write in brief about the examination of accused in sexual assault. (4, 2072/10)[cite: 2]</li>
+            <li>Define rape. What are the different conditions for rupture of hymen? Write the conditions in which spermatozoa are negative from the vaginal swab in case of victim of rape. (4, 2 pages answer, 2070/11)[cite: 2]</li>
+            <li>Define the following terms: (a) Rape (2068/5)[cite: 2]</li>
+            <li>A young female who alleges that she has been sexually assaulted two days ago has just been examined by you. Investigations of vaginal swab for spermatozoa are all negative. Discuss the causes for non-detection of spermatozoa from the swabs. (4, 2067/1)[cite: 2]</li>
+            <li>Define rape. Why should the term 'rape' not be used in a medicolegal report? (4, 2065/1)[cite: 2]</li>
+            <li>Draw & label the normal external genitalia. Draw & name, but do not label, the variations of normal prepubertal hymen. (4, 2064/8)[cite: 2]</li>
+            <li>Define rape. Explain what do you mean by the following statement: The ultimate conclusion as to whether rape has occurred or not should be made by the judiciary and not by a medical doctor. (2062/12)[cite: 2]</li>
+            <li>Define the following terms: (a) Rape (2062/7)[cite: 2]</li>
+            <li>Draw and label: (a) A human bite mark over the arm of an alleged victim of rape. (2062/7)[cite: 2]</li>
+            <li>Describe the procedure of examination and collection of evidences from a female victim of an alleged sexual assault. (5, 2062/1)[cite: 2]</li>
+            <li>How do you investigate a female rape victim? (5, 2061)[cite: 2]</li>
+            <li>List the different types of sexual offenses. Describe the process of examination of a female who alleges having been sexually assaulted. How would you collect the trace evidences during the examination? (10, 2059)[cite: 2]</li>
+            <li>Make a list of the trace evidence you would collect in a female victim of an alleged sexual assault. Describe very briefly how you would collect the evidence in your list. (8, 2058)[cite: 2]</li>
+            <li>Make a plan of examination of sexual assault victim, who is alleged forcefully and sexually assaulted on a roadside by more than one person. (2054)[cite: 2]</li>
+            <li>Which features seen at the time of examination of a 12 years old female victim of sexual assault go towards a positive opinion that sexual intercourse has been committed? (2052)[cite: 2]</li>
+            <li>Write the examination of male perpetrator in the sexual assault case. (8, 2080)[cite: 2]</li>
+        </ol>
+
+        <!-- VIRGINITY -->
+        <h2>Virginity & Defloration</h2>
+        
+        <h3>Definitions</h3>
+        <ul>
+            <li><strong>Virgin (Latin <em>virgo</em>: maiden; <em>intacta</em>: untouched):</strong> Female who has not experienced sexual intercourse.[cite: 2]</li>
+            <li><strong>Defloration:</strong> Loss of virginity is known as defloration.[cite: 2]</li>
+            <li><strong>Marriage:</strong> Legally, a contract between a man and a woman which implies physical union by coitus.[cite: 2]</li>
+            <li><strong>Divorce:</strong> Dissolution of previously valid marriage.[cite: 2]</li>
+            <li><strong>Medicolegal contexts:</strong> Questions of virginity and defloration arise in nullity of marriage and divorce, defamation, and rape cases. The doctor is called upon to give an opinion after examination.[cite: 2]</li>
+        </ul>
+
+        <h3>Normal Female Anatomy (in Virgins) [2064]</h3>
+        <p>The virginal vulva comprises: Prepuce, Clitoris, Frenulum, Labium majus, Urethral meatus, Labium minus, Vaginal introitus, Hymen, Vestibule, Fourchette, Posterior commissure, Fossa navicularis, and Anus.[cite: 2]</p>
+
+        <h3>The Hymen</h3>
+        <ul>
+            <li>A fold of mucous membrane, about 1 mm thick, situated at the vaginal outlet partially covering it.[cite: 2]</li>
+            <li>Usually thin and transparent, but may be tough, fleshy, or cartilaginous. It develops embryologically from sinovaginal bulbs.[cite: 2]</li>
+            <li><strong>Anatomical progression:</strong> In infants, a small swab can be passed through the hymenal orifice. At 10 years of age, the tip of the small finger can be passed, and at puberty, one finger may be admitted.[cite: 2]</li>
+        </ul>
+
+        <h3>Types of Hymen [2064]</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Opening Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Semilunar / Crescentric (Commonest)</strong></td>
+                    <td>Anteriorly present at the lateral and posterior margins of vaginal opening[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Annular</strong></td>
+                    <td>Oval situated in the center and encircles the vaginal opening[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Infantile</strong></td>
+                    <td>Small linear opening in the midline[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>4. Cribriform</strong></td>
+                    <td>Several hymenal openings[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>5. Vertical</strong></td>
+                    <td>A vertical hymenal opening is seen[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>6. Septate</strong></td>
+                    <td>Two lateral openings side by side[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>7. Imperforate</strong></td>
+                    <td>No hymenal opening[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>8. Fimbriated / Notched</strong></td>
+                    <td>Free margin presents natural notches. Wavy or undulating; frilly edged.[cite: 2]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Fimbriated Hymen vs. Ruptured Hymen</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Features</th>
+                    <th>Fimbriated Hymen</th>
+                    <th>Ruptured Hymen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Situation of notches</strong></td>
+                    <td>Present anteriorly; doesn't extend to the base of hymen[cite: 2]</td>
+                    <td>Present posteriorly at one or both sides or median line; extends to the point of attachment to the edge[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Shape and size</strong></td>
+                    <td>Bilaterally symmetrical[cite: 2]</td>
+                    <td>Asymmetrical[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Mucous membrane</strong></td>
+                    <td>Intact over notches[cite: 2]</td>
+                    <td>Not intact over notches[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Cause</strong></td>
+                    <td>Occurs naturally making the edges notchy[cite: 2]</td>
+                    <td>Caused by sexual intercourse or foreign bodies[cite: 2]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Hymen in Relation to Sexual Intercourse</h3>
+        <ul>
+            <li>In the majority of cases, the hymen is ruptured during the first act of coitus. However, certain structural typologies will <strong>not rupture even by repeated acts</strong>: Annular (fringe-like), loose/folded/elastic types, and thick/tough/fleshy types.[cite: 2]</li>
+            <li>Coitus tears appear posteriorly, usually at the <strong>5 o'clock and 7 o'clock positions</strong>, because the penis is forced backwards by the pubic symphysis.[cite: 2]</li>
+            <li><strong>Timeline of healing:</strong> Recent tears look raw, red, swollen, and painful; they bleed on touching within 1–2 days and heal in 5–6 days. Within 8–10 days, they become shrunken and look like granular tags of tissue.[cite: 2]</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Causes of Hymenal Rupture:</strong><br>
+            1. Penile penetration &bull; 2. Accidental &bull; 3. Masturbation &bull; 4. Foreign body &bull; 5. Ulceration &bull; 6. Scratching &bull; 7. Surgical/gynecological operations &bull; 8. Sanitary tampons.[cite: 2]<br>
+            <strong>Crucial Fact:</strong> Riding, dancing, or jumping will NOT rupture the hymen. Forcible separation of thighs in children will not rupture it unless the perineum is also torn.[cite: 2]
+        </div>
+
+        <h3>Diagnosis of Virginity</h3>
+        <ul>
+            <li>Intactness of the hymen is <strong>not an absolute proof of virginity</strong>. There are true as well as false virgins.[cite: 2]</li>
+            <li><strong>Carunculae Hymenalis / Myrtiformis:</strong> Found in those who have habitual intercourse or have given birth. The hymen is completely destroyed, leaving small, round, red fleshy tags around the ring.[cite: 2]</li>
+        </ul>
+
+        <h3>True Virgin vs. False Virgin</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Feature</th>
+                    <th>True Virgin</th>
+                    <th>False Virgin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><strong>Basic difference</strong></td>
+                    <td>Has not experienced sexual intercourse[cite: 2]</td>
+                    <td>Has experienced sexual intercourse[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>Hymen</strong></td>
+                    <td>Intact, rigid, inelastic; admits tip of little finger painfully[cite: 2]</td>
+                    <td>Intact, but loose, elastic or thick/fleshy; easily admits two fingers[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td><strong>Labia majora</strong></td>
+                    <td>Thick, fleshy, completely close vaginal orifice[cite: 2]</td>
+                    <td>Less fleshy, not apposed, orifice may be visible[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td><strong>Labia minora</strong></td>
+                    <td>Small, pinkish, covered by majora in close contact[cite: 2]</td>
+                    <td>Enlarged, pigmented, exposed and separated[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td><strong>Vagina</strong></td>
+                    <td>Narrow; marked rugosity; full length of finger not admitted[cite: 2]</td>
+                    <td>Capacious; rugae less obvious; full finger admitted[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td><strong>Fossa navicularis</strong></td>
+                    <td>Present[cite: 2]</td>
+                    <td>Disappears[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td><strong>Fourchette</strong></td>
+                    <td>Intact[cite: 2]</td>
+                    <td>Torn, may show healed scar[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td><strong>Vestibule</strong></td>
+                    <td>Narrow[cite: 2]</td>
+                    <td>Gaping, wide, spacious[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td><strong>Clitoris</strong></td>
+                    <td>Small[cite: 2]</td>
+                    <td>Enlarged[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td><strong>Posterior commissure</strong></td>
+                    <td>Intact[cite: 2]</td>
+                    <td>May be torn[cite: 2]</td>
+                </tr>
+                <tr style="background-color: #141414;">
+                    <td colspan="5" style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-color);">EXTRA-GENITAL SIGNS (BREASTS)</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td><strong>Breasts status</strong></td>
+                    <td>Small, hemispherical, firm[cite: 2]</td>
+                    <td>Large, pendulous, flabby[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td><strong>Areola</strong></td>
+                    <td>Pink[cite: 2]</td>
+                    <td>Pigmented[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td><strong>Nipples</strong></td>
+                    <td>Small, pink[cite: 2]</td>
+                    <td>Enlarged, pigmented[cite: 2]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Difference between Virginity and Defloration Summary</h3>
+        <p>The features will be identical for a deflorate woman and a false virgin with the sole exception of the presence of an intact (but elastic) hymen in the latter.[cite: 2] The principal signs of virginity taken together are an intact hymen, normal fourchette/posterior commissure, and a narrow vagina with rugose walls.[cite: 2]</p>
+
+        <!-- SEXUAL OFFENCES & RAPE -->
+        <h2>Sexual Offences Framework & Rape</h2>
+        <p><strong>Definition:</strong> Sexual offences are acts of illegal sexual intercourse with another person, with an animal, or any other illegal act executed to obtain sexual gratification.[cite: 2]</p>
+
+        <h3>Classification Typology</h3>
+        <ul>
+            <li><strong>1. Natural Offences:</strong> Rape, Incest, Adultery[cite: 2]</li>
+            <li><strong>2. Unnatural Offences:</strong> Sodomy, Tribadism / Lesbianism, Bestiality, Buccal / oral coitus[cite: 2]</li>
+            <li><strong>3. Sexual Perversions:</strong> Sadism, Masochism, Fetishism, Transvestism, Exhibitionism, Masturbation, Frotteurism[cite: 2]</li>
+            <li><strong>4. Other Sex-Linked Offences:</strong> Indecent assault, Stalking, Trafficking, Sexual harassment, Voyeurism[cite: 2]</li>
+        </ul>
+
+        <h2>Rape & Legal Definitions (Nepal Law)</h2>
+        <p><strong>Rape is a legal verdict — not a medical designation.</strong>[cite: 2] Medical professionals use the term <em>"sexual assault"</em> in medical reports.[cite: 2]</p>
+
+        <h3>National Criminal Code, 2074 (Chapter 18, Section 219)</h3>
+        <ul>
+            <li><strong>Subsection 1:</strong> No one shall commit rape.[cite: 2]</li>
+            <li><strong>Subsection 2:</strong> A woman or girl is said to have been raped if someone performs an act of sexual intercourse without her consent, or with a consenting girl less than 18 years old.[cite: 2]</li>
+            <li><strong>Consent Validity:</strong> Acceptance extracted via torture, undue influence, fear, intimidation, incarceration, abduction, or taking a hostage is invalid. Consent is also invalid if taken under the influence, in a semi-conscious state, or with a mentally unsound girl.[cite: 2]</li>
+            <li><strong>Expanded Definition:</strong> Rape is legally established even if the penis was inserted only partially into the anus or mouth, or if anything other than the penis is forced to enter the vagina.[cite: 2]</li>
+        </ul>
+
+        <h3>Punishment Matrix under Subsection 3</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Age of Victim / Circumstances</th>
+                    <th>Punishment Severity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Child under 10 / infirm / handicapped / elderly of 70+ years</td>
+                    <td><strong>Life imprisonment</strong>[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>Child between 10–14 years</td>
+                    <td>18–20 years imprisonment[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>Child between 14–16 years</td>
+                    <td>12–14 years imprisonment[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td>Child between 16–18 years</td>
+                    <td>10–12 years imprisonment[cite: 2]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Special Legal Subsections</h3>
+        <ul>
+            <li><strong>Subsection 4:</strong> If a husband forcibly commits rape with his wife while the marriage is in force &rarr; 5 years imprisonment. Transmission of STDs adds 3 years imprisonment + Rs. 30,000 fine.[cite: 2]</li>
+            <li><strong>Subsection 7 (Gang Rape & Aggravated Situations):</strong> Rape of a woman pregnant by 6 months or more, a partially infirm/handicapped/mentally ill woman, or rape using a weapon &rarr; additional 5 years imprisonment appended to Subsection 3 terms.[cite: 2]</li>
+            <li><strong>Subsection 8:</strong> If a man commits rape which also constitutes incest &rarr; dual charges applied.[cite: 2]</li>
+        </ul>
+
+        <h3>Medicolegal Aspects & Clinical Realities [2065]</h3>
+        <p>Medical officers must restrict conclusions to three distinct evidence-based clinical categories:</p>
+        <div class="flow-step">a. Injuries in the body and genitals + vaginal swab positive &rarr; <strong>Recent forceful sexual intercourse</strong>[cite: 2]</div>
+        <div class="flow-step">b. No injuries but vaginal swab positive &rarr; <strong>Recent sexual intercourse</strong>[cite: 2]</div>
+        <div class="flow-step">c. No injuries and vaginal swab negative &rarr; <strong>No evidence of sexual intercourse</strong>[cite: 2]</div>
+
+        <div class="viva-note">
+            <strong>Key Insights:</strong><br>
+            • Rape can be committed even with an inability to produce an erection or ejaculation.[cite: 2]<br>
+            • Rape can occur without causing any physical injury; negative evidence does not exclude rape.[cite: 2]<br>
+            • <strong>Will vs. Consent:</strong> Intercourse with an unconscious woman is "without her consent" but not technically "against her will". An act against her will is necessarily without her consent.[cite: 2]
+        </div>
+
+        <h3>Clinical Forms of Rape</h3>
+        <ul>
+            <li><strong>Custodial rape:</strong> Assault by an authority figure (police, jail warden, hospital staff) on a person in their custody.[cite: 2]</li>
+            <li><strong>Gang rape (pack rape):</strong> When more than one person rapes a woman, each individual is deemed to have committed gang rape.[cite: 2]</li>
+            <li><strong>Statutory rape:</strong> Sexual intercourse with a person under the age of consent (16 years in text context), regardless of mutual consent.[cite: 2]</li>
+            <li><strong>Date rape:</strong> Intercourse achieved by secretly administering sedatives like flunitrazepam (Rohypnol) or gamma-hydroxybutyrate (GHB).[cite: 2]</li>
+            <li><strong>Marital rape:</strong> Forcible sexual relations within marriage, particularly when living separately.[cite: 2]</li>
+        </ul>
+
+        <h3>Indecent Assault</h3>
+        <p>Any offence committed on a female with the intention or knowledge to outrage her modesty (gross violation of decency/morality). Women are charged with indecent assault, not rape. Punishment includes up to 2 years of imprisonment or a fine.[cite: 2]</p>
+
+        <!-- EXAMINATION OF RAPE VICTIM -->
+        <h2>Examination of the Rape Victim [2072, 62]</h2>
+        <p>The victim must be advised not to change clothes or bathe to prevent loss of physical trace evidence.[cite: 2]</p>
+
+        <h3>Objectives & Prerequisites</h3>
+        <ol>
+            <li>Search for physical signs to corroborate the history given by the victim.[cite: 2]</li>
+            <li>Search, collect, and preserve all trace evidence for laboratory analysis.[cite: 2]</li>
+            <li>Provide medical treatment for injuries, prevent/treat STDs or pregnancy, and alleviate psychological trauma.[cite: 2]</li>
+        </ol>
+
+        <h3>Precautions & Preamble Protocol</h3>
+        <ul>
+            <li>An authorized legal requisition must arrive from a Magistrate or a police station in-charge.[cite: 2]</li>
+            <li>Written, witnessed consent must be obtained. Examination must occur strictly in the presence of a female attendant.[cite: 2]</li>
+            <li>Record key preamble metadata: Name, age, height, marital status, residence, social status, date/time/place of examination, and two permanent identification marks.[cite: 2]</li>
+            <li><strong>History collection:</strong> Note details of the attack (date, time, place, number of assailants, threats), subsequent actions (bathing, changing clothes, passing urine/stool), last consensual intercourse, and gynecological history (LMP, gravity, parity, contraception).[cite: 2]</li>
+        </ul>
+
+        <h3>The Examination Proper</h3>
+        <p>The victim should initial the examination standing on a <strong>clean white sheet of paper</strong> to catch falling debris/hair.[cite: 2]</p>
+        
+        <ul>
+            <li><strong>General & Clothes:</strong> Assess psychological state (anxious, tearful), gait, and clothing for stains (blood, semen, mud, grass), tears, or missing buttons.[cite: 2]</li>
+            <li><strong>Extra-Genital Injury:</strong> Perform a head-to-toe check for tenderness, soft-tissue swelling, abrasions, contusions, and individualistic <strong>bite marks</strong>.[cite: 2]</li>
+            <li><strong>Genital Examination (Lithotomy Position):</strong>
+                <ul>
+                    <li>Preserve any bloodstains in/around the vagina.[cite: 2]</li>
+                    <li>Comb the pubic hair to catch non-matching foreign hair; clip any hair matted with semen/blood.[cite: 2]</li>
+                    <li>Inspect the labia before retraction for swelling/edema.[cite: 2]</li>
+                    <li>Inspect the <strong>hymen</strong> for recent ragged tears, edema, or hemorrhage. Tearing typically occurs at the <strong>5 o'clock or 7 o'clock position</strong>.[cite: 2]</li>
+                    <li>Evaluate the fragile fourchette and posterior commissure for lacerations. Check vaginal laxity and look for diagnostic cervical abrasions.[cite: 2]</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Specimens Preserved for Laboratory Investigations</h3>
+        <ul>
+            <li><strong>Clothing:</strong> For stains, tears, and foreign materials.[cite: 2]</li>
+            <li><strong>Scrapings:</strong> Dried blood stains (grouping, DNA) and dried seminal stains (sperms, acid phosphatase, semen-specific glycoprotein, DNA profiling).[cite: 2]</li>
+            <li><strong>Hair & Nails:</strong> Matted pubic hair, foreign hair, broken nails, and nail scrapings.[cite: 2]</li>
+            <li><strong>Swabs:</strong> Low, mid, and high vaginal swabs; swabs of soiled skin/bite marks; oral, pharyngeal, and anal swabs.[cite: 2]</li>
+            <li><strong>Systemic Blood & Urine:</strong> For blood grouping, toxicology/alcohol screen, VDRL, HIV, and urine pregnancy test.[cite: 2]</li>
+        </ul>
+
+        <!-- EXAMINATION OF ACCUSED -->
+        <h2>Examination of the Accused [2080]</h2>
+        <p>It is optimal to examine the accused after the victim to check for specific defense injuries inflicted by the victim.[cite: 2]</p>
+
+        <h3>Protocol & Consent</h3>
+        <ul>
+            <li>Record standard identifiers, genital development, and physical build.[cite: 2]</li>
+            <li><strong>Refusal of Consent:</strong> If the accused refuses consent, he can still be examined and evidence collected (blood, swabs) using <strong>reasonable force</strong>.[cite: 2]</li>
+            <li>Note his version of the history, mental state, and behavioral presentation.[cite: 2]</li>
+        </ul>
+
+        <h3>Physical & Local Genital Examination</h3>
+        <ol>
+            <li><strong>Clothes & Injuries:</strong> Scan clothing for tears, blood/semen/mud/cosmetic stains. Examine fingers, fingernails, knees, and elbows for scratches, abrasions, or bite marks.[cite: 2]</li>
+            <li><strong>Genital Assessment:</strong> Collect pubic hair samples. Look for tearing or bruising of the frenulum of the prepuce (in uncircumcised penises) or glans abrasions caused by forceful penetration against resistance.[cite: 2]</li>
+            <li><strong>The Smegma Sign:</strong> If smegma is fully intact under the prepuce and corona glandis, it is <strong>inconsistent with recent intercourse</strong>, as it rubs off during coitus and takes 24 hours to re-deposit.[cite: 2]</li>
+            <li><strong>Lugol's Iodine Test:</strong> Painting the glans with iodine solution turns glycogen-rich vaginal epithelial cells brown, proving recent contact.[cite: 2]</li>
+            <li><strong>Papanicolaou's Stain:</strong> Saline wash of the penis stained to identify vaginal/cervical cells and Barr bodies.[cite: 2]</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Contamination Warning:</strong><br>
+            Never unpack or process samples from the victim and the accused on the same table or surface, to prevent accidental forensic cross-contamination.[cite: 2]
+        </div>
+
+        <!-- SPECIAL SITUATIONS -->
+        <h2>Findings & Special Clinical Situations</h2>
+        
+        <h3>Rape on Sexually Active (Deflorate) Women</h3>
+        <ul>
+            <li>The hymen is already destroyed and the vaginal orifice is dilated with a loss of normal rugosity.[cite: 2]</li>
+            <li>Complete penetration can occur without leaving any structural injury. <strong>The only definitive proof of penetration is the presence of spermatozoa in the vagina.</strong>[cite: 2]</li>
+        </ul>
+
+        <h3>Rape on Children</h3>
+        <ul>
+            <li>The child should be taken to the operating theater and anesthetized before examination.[cite: 2]</li>
+            <li>Signs of general body violence are often minimal/absent due to lack of physical resistance capability.[cite: 2]</li>
+            <li><strong>Findings:</strong> Perineal/fourchette tears, uncontrolled bleeding, vulvar inflammation, and a highly red, congested hymen (which may remain unruptured because it is deeply situated in children).[cite: 2]</li>
+        </ul>
+
+        <h3>Rape Trauma Syndrome</h3>
+        <p>A specific post-traumatic stress disorder presenting in two phases: 1) <strong>Immediate/Acute Phase</strong> (guilt, humiliation, acute tension) and 2) <strong>Long-term Re-organization Phase</strong> (readjustment, nightmares, phobias).[cite: 2]</p>
+
+        <h3>Feigned Rape</h3>
+        <ul>
+            <li>A condition where a woman fabricates an allegation of rape due to exposure of illicit activities, pregnancy out of wedlock, revenge, or financial extortion.[cite: 2]</li>
+            <li><strong>Identifiers:</strong> Inconsistent timelines, absence of struggle or resistance signs, presence of typical <strong>self-inflicted injuries</strong> that do not match the alleged timing, and completely negative lab diagnostics.[cite: 2]</li>
+        </ul>
+
+        <h3>Causes for Non-Detection of Spermatozoa in Vaginal Swab [2070, 67]</h3>
+        <p>If investigations of vaginal swabs for spermatozoa are entirely negative, consider the following potential causes:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Specific Causes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Assailant Factors</strong></td>
+                    <td>No ejaculation &bull; Ejaculation occurred entirely outside the vagina &bull; Azoospermic male &bull; Assailant has undergone a vasectomy &bull; Extensive use of condoms (common in gang rapes)[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Victim / Case Factors</strong></td>
+                    <td>Significant delay in medical examination &bull; The female has thoroughly bathed or washed her private parts &bull; Vaginismus preventing full entry &bull; Insertion of a foreign body instead of the penis &bull; False allegation[cite: 2]</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <strong>Conditions Simulating Rape (Differential Diagnosis):</strong><br>
+            Feigned rape &bull; Consensual sex later alleged as rape &bull; Anal fissures &bull; Dermatological conditions (Lichen sclerosus, Candidiasis, Vaginitis, Vulvitis, Bullous pemphigoid, Warts, Molluscum contagiosum) &bull; General physical assault &bull; Battered baby syndrome.[cite: 2]
+        </div>
+
+        <!-- INCEST, ADULTERY & UNNATURAL OFFENCES -->
+        <h2>Incest, Adultery & Unnatural Offences</h2>
+        
+        <h3>Incest</h3>
+        <p><strong>Definition:</strong> Sexual intercourse by a man with a woman closely related to him by blood or marriage within prohibited degrees of relationship.[cite: 2]</p>
+        <ul>
+            <li><strong>Psychological Complexes:</strong> Father-Daughter (Electra complex), Mother-Son (Oedipus complex), Brother-Sister (Pharaonic incest).[cite: 2]</li>
+            <li><strong>Circumstances:</strong> Family disorganization, severe alcoholism (disinhibition), overcrowding, low socioeconomic groups, mental problems, or cerebral diseases (general paralysis/senile degeneration).[cite: 2]</li>
+        </ul>
+
+        <h3>Adultery</h3>
+        <p><strong>Definition:</strong> Voluntary natural sexual intercourse between a married person and someone who is not their legally wedded spouse.[cite: 2]</p>
+
+        <h3>Unnatural Sexual Offences</h3>
+        <p>Voluntary sexual intercourse against the order of nature, where the act does not involve regular penetration of a woman's vagina by a man's penis (lacks procreative potential).[cite: 2]</p>
+
+        <h3>1. Sodomy (Buggery)</h3>
+        <ul>
+            <li>Anal intercourse between two males (homosexual) or a male and female (heterosexual).[cite: 2] Term derived from the Biblical city of Sodom.[cite: 2]</li>
+            <li><strong>Variants:</strong> <em>Gerontophilia</em> (passive agent is an adult), <em>Paederasty</em> (passive agent is a child, termed a <em>catamite</em>; active agent is a <em>paedophile</em>).[cite: 2]</li>
+            <li><strong>Eunuch subcultures (India):</strong> <em>Hijrahs</em> (castrated before puberty via removal of penis and scrotum); <em>Zenanas</em> (genitals remain intact).[cite: 2]</li>
+            <li><strong>Examination Findings:</strong>
+                <ul>
+                    <li><em>Non-habitual Passive Victim:</em> Severe perianal abrasions, bruising, erythema, anal fissures, deep lacerations/tears, or external anal sphincter transection. Presence of semen in the anus is the <strong>only definitive evidence of sodomy</strong>.[cite: 2]</li>
+                    <li><em>Habitual Passive Agent:</em> Shaved anal hair, thickened/keratinized perianal skin, absent pain on digital examination. The anal sphincter is loose/lax, the opening is <strong>patulous</strong>, the canal is dilated, and there is a loss of normal symmetric rugal patterns. Shows a positive <strong>lateral traction test</strong> and a funnel-shaped depression of the buttocks.[cite: 2]</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2. Tribadism / Lesbianism</h3>
+        <ul>
+            <li>Female homosexuality where two women achieve mutual sexual gratification. It is not considered an offence under Nepal law.[cite: 2]</li>
+            <li>Gratification via kissing, breast/genital massage, and mutual rubbing. Active lesbian is termed a <em>butch</em> or <em>dyke</em>; passive is a <em>femme</em>. Physical exam may reveal scratches or bite marks.[cite: 2]</li>
+        </ul>
+
+        <h3>3. Bestiality (Zoophilia)</h3>
+        <ul>
+            <li>Sexual intercourse with an animal (vaginal, anal, oral). Males frequently use sheep; females commonly use dogs or cats.[cite: 2]</li>
+            <li><strong>Definitive Evidence:</strong> Finding <strong>human spermatozoa</strong> within the genital tract of the animal. Accused's penis may show animal hair, dung stains, or fecal contamination.[cite: 2]</li>
+        </ul>
+
+        <h3>4. Buccal Coitus</h3>
+        <p>Penile or vaginal oral intercourse (also termed the 'Sin of Gomorrah'). Comprises <strong>Cunnilingus</strong> (oral stimulation of female genitalia) and <strong>Fellatio</strong> (oral stimulation of male genitalia). Regarded as normal sexual foreplay in modern contexts.[cite: 2]</p>
+
+        <!-- SEXUAL PERVERSIONS -->
+        <h2>Sexual Perversions (Paraphilias)</h2>
+        <p><strong>Definition:</strong> Persistently indulged sexual acts or fantasies in which complete satisfaction is sought and obtained without standard sexual intercourse.[cite: 2]</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Perversion Category</th>
+                    <th>Clinical Examples & Definition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sadism</strong></td>
+                    <td>Gratification derived from inflicting pain, torture, and humiliation on a partner. Extreme variants include <strong>Lust murder</strong> (killing acts as the sexual stimulus) and <strong>Necrophagia</strong> (eating the flesh of a dead person).[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Masochism</strong></td>
+                    <td>Opposite of sadism; gratification is derived from being bitten, tortured, or humiliated by a partner. (Combination of both is termed <strong>Bondage</strong>).[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Fetishism</strong></td>
+                    <td>Sexual arousal derived from viewing specific non-genital body parts or inanimate articles belonging to a partner (sandals, inner garments, hair).[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Transvestism (Eonism)</strong></td>
+                    <td>An obsessive desire to cross-dress in the clothes of the opposite sex.[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Exhibitionism</strong></td>
+                    <td>Gratification obtained by the willful, indecent exposure of genital organs in a public place.[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Voyeurism (Scoptophilia)</strong></td>
+                    <td>Gratification obtained by secretly peeping at individuals undressing, bathing, or engaging in intercourse. (Male voyeurs are termed <em>Peeping Toms</em>).[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Myxoscopia & Troilism</strong></td>
+                    <td><em>Myxoscopia:</em> Watching others engage in coitus.[cite: 2] <em>Troilism:</em> Extreme voyeurism where a husband derives pleasure from watching (or forcing) his wife to have intercourse with another man.[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Frotteurism</strong></td>
+                    <td>Arousal achieved by rubbing one's genitalia or touching the body of an unsuspecting person in crowded areas (e.g., buses).[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Necrophilia</strong></td>
+                    <td>Sexual intercourse executed with dead bodies.[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Pedophilia</strong></td>
+                    <td>An adult repeatedly engaging in sexual activities with pre-pubescent children (heterosexual or homosexual).[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Erotographomania</strong></td>
+                    <td>Gratification derived from writing obscene and vulgar statements in public places (e.g., public toilets).[cite: 2]</td>
+                </tr>
+                <tr>
+                    <td><strong>Hypersexuality Drives</strong></td>
+                    <td><strong>Satyriasis</strong> (excessive sexual desire in males) and <strong>Nymphomania</strong> (excessive sexual drive in females).[cite: 2]</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
