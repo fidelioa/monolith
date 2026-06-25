@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monolith — About</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v13/font/simple-icons.min.css">
     <style>
         :root {
             --bg-color: #0a0a0a;
+            --panel-bg: #111111;
             --text-color: #e5e5e5;
             --accent-color: #888888;
             --border-color: #222222;
@@ -26,6 +28,10 @@
             font-family: -apple-system, BlinkMacSystemFont, "Georgia", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             padding: 0 20px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navigation */
@@ -33,10 +39,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 800px;
+            max-width: 650px;
+            width: 100%;
             margin: 0 auto;
             padding: 30px 0;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(34, 34, 34, 0.4);
+            z-index: 10;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .logo {
@@ -45,6 +55,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             font-size: 1.2rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         }
 
         .nav-links {
@@ -59,6 +70,7 @@
             font-size: 0.9rem;
             font-family: var(--font-mono);
             transition: color 0.2s ease;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
         }
 
         .nav-links a.active {
@@ -70,90 +82,178 @@
             color: var(--hover-color);
         }
 
-        /* Main Container */
-        main {
-            max-width: 800px;
-            margin: 80px auto;
+        /* WIDESCREEN PATRON BACKDROP — Eyes Wide Shut Mask Image */
+        .widescreen-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50vh; 
+            background-image: url('https://image.tmdb.org/t/p/original/rA9QYI7yTV2F2AvaqBcq1vL3MOr.jpg');
+            background-size: cover;
+            background-position: center 25%;
+            z-index: 1;
+            filter: brightness(65%) contrast(110%);
         }
 
-        /* Profile Section */
+        /* Edge Bleed Fades into native dark theme variables */
+        .widescreen-backdrop::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, transparent 50%, var(--bg-color) 98%),
+                linear-gradient(to right, var(--bg-color) 0%, transparent 12%, transparent 88%, var(--bg-color) 100%);
+        }
+
+        /* Main Container */
+        main {
+            position: relative;
+            max-width: 650px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 38vh 0 40px 0; /* Pushes layout cleanly below backdrop threshold */
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        /* Profile Header */
         .profile-header {
-            margin-bottom: 40px;
+            margin-bottom: -0.5rem;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 400;
             font-style: italic;
             letter-spacing: -1px;
-            margin-bottom: 10px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.9);
         }
 
-        .sub-label {
+        /* Coordinates Panel — Moved up cleanly before your bio description */
+        .coordinates-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .panel-label {
             font-family: var(--font-mono);
+            font-size: 0.75rem;
             color: var(--accent-color);
-            font-size: 0.9rem;
-            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            display: block;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.5rem;
         }
 
-        /* Bio Content */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            text-decoration: none;
+            padding: 0.2rem;
+            transition: all 0.2s ease;
+        }
+
+        .social-link i {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .network-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .network-name {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .network-handle {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-color);
+        }
+
+        /* Hover Coordinates Actions */
+        .social-link:hover i {
+            color: var(--hover-color);
+            transform: scale(1.08);
+        }
+
+        .social-link:hover .network-name {
+            color: var(--hover-color);
+        }
+
+        /* Bio Content Layout */
         .bio-content {
             font-size: 1.05rem;
             color: #cccccc;
-            max-width: 650px;
-            margin-bottom: 50px;
         }
 
         .bio-content p {
             margin-bottom: 20px;
+            text-align: justify;
         }
 
-        /* External Links */
-        .links-section {
-            border-top: 1px solid var(--border-color);
-            padding-top: 30px;
-        }
-
-        .links-title {
-            font-family: var(--font-mono);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            list-style: none;
-        }
-
-        .social-links a {
-            font-family: var(--font-mono);
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.2s ease, padding-left 0.2s ease;
-            display: inline-block;
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-            padding-left: 5px;
-        }
-
-        /* Footer */
+        /* Footer positioning adjustment */
         footer {
-            max-width: 800px;
-            margin: 100px auto 40px auto;
+            max-width: 650px;
+            width: 100%;
+            margin: auto auto 40px auto;
             text-align: center;
             font-family: var(--font-mono);
             font-size: 0.8rem;
             color: var(--accent-color);
             border-top: 1px solid var(--border-color);
             padding-top: 20px;
+            z-index: 2;
+        }
+
+        /* Responsive Formatting Layout Overrides */
+        @media (max-width: 680px) {
+            nav {
+                padding: 20px 0;
+            }
+
+            .widescreen-backdrop {
+                height: 35vh;
+            }
+
+            main {
+                padding-top: 25vh;
+                gap: 2rem;
+            }
+
+            h1 {
+                font-size: 2.4rem;
+                text-align: center;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
         }
     </style>
 </head>
@@ -168,9 +268,41 @@
         </ul>
     </nav>
 
+    <div class="widescreen-backdrop"></div>
+
     <main>
         <section class="profile-header">
             <h1>ankit.</h1>
+        </section>
+
+        <section class="coordinates-panel">
+            <span class="panel-label">External Feeds</span>
+            
+            <div class="social-grid">
+                <a href="https://letterboxd.com/ankitx" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="si si-letterboxd"></i>
+                    <div class="network-details">
+                        <span class="network-name">Letterboxd</span>
+                        <span class="network-handle">/ankitx</span>
+                    </div>
+                </a>
+
+                <a href="https://www.goodreads.com/user/show/151452764-ankit" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="si si-goodreads"></i>
+                    <div class="network-details">
+                        <span class="network-name">Goodreads</span>
+                        <span class="network-handle">/ankit</span>
+                    </div>
+                </a>
+
+                <a href="https://instagram.com/i_is_ankit" class="social-link" target="_blank" rel="noopener noreferrer">
+                    <i class="si si-instagram"></i>
+                    <div class="network-details">
+                        <span class="network-name">Instagram</span>
+                        <span class="network-handle">@i_is_ankit</span>
+                    </div>
+                </a>
+            </div>
         </section>
 
         <section class="bio-content">
@@ -181,15 +313,6 @@
                 The rest is dynamic procrastination: a carefully engineered system for avoiding the things I should be studying. Every so often, reality intervenes, deadlines loom, and the required reading gets done. This site is the byproduct of those rare occasions.
             </p>
         </section>
-
-        <section class="links-section">
-            <h2 class="links-title">External Feeds</h2>
-            <ul class="social-links">
-                <li><a href="https://letterboxd.com/ankitx" target="_blank">→ Letterboxd</a></li>
-                <li><a href="https://www.goodreads.com/user/show/151452764-ankit" target="_blank">→ Goodreads</a></li>
-                <li><a href="https://instagram.com/i_is_ankit" target="_blank">→ Instagram</a></li>
-            </ul>
-        </section>
     </main>
 
     <footer>
@@ -198,4 +321,3 @@
 
 </body>
 </html>
-
