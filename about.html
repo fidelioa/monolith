@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monolith — About</title>
+    <!-- Simple Icons CDN for clean SVG social icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v13/font/simple-icons.min.css">
     <style>
         :root {
@@ -88,10 +89,10 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 58vh; /* Increased slightly to prevent heavy vertical clipping on desktop */
+            height: 60vh; /* Increased viewport height to give the image more breathing room */
             background-image: url('https://image.tmdb.org/t/p/original/rA9QYI7yTV2F2AvaqBcq1vL3MOr.jpg');
             background-size: cover;
-            background-position: center 20%; /* Re-centered to optimize laptop visibility */
+            background-position: left bottom; /* Anchors the stick figure to the visible frame on wide monitors */
             z-index: 1;
             filter: brightness(65%) contrast(110%);
         }
@@ -105,7 +106,7 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(to bottom, rgba(10, 10, 10, 0.3) 0%, transparent 50%, var(--bg-color) 98%),
+                linear-gradient(to bottom, rgba(10, 10, 10, 0.2) 0%, transparent 40%, transparent 70%, var(--bg-color) 100%),
                 linear-gradient(to right, var(--bg-color) 0%, transparent 12%, transparent 88%, var(--bg-color) 100%);
         }
 
@@ -115,18 +116,19 @@
             max-width: 650px;
             width: 100%;
             margin: 0 auto;
-            padding: 46vh 0 40px 0; /* Pushed down proportionately for laptop screens */
+            padding: 52vh 0 40px 0; /* Adjusted padding to sync gracefully with the 60vh container background height */
             z-index: 2;
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
         }
 
-        /* Identity Stack Layout matching your home aesthetic */
+        /* Identity Stack Layout matching your home aesthetic with overlapping overlay alignment */
         .identity-stack {
             display: flex;
             align-items: center;
             gap: 2rem;
+            margin-top: -80px; /* Pulls profile picture up to overlap smoothly onto the image banner */
             margin-bottom: -0.5rem;
         }
 
@@ -135,7 +137,7 @@
             height: 110px;
             border-radius: 50%;
             border: 3px solid var(--bg-color);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
             object-fit: cover;
             flex-shrink: 0;
         }
@@ -250,12 +252,12 @@
             }
 
             .widescreen-backdrop {
-                height: 38vh;
-                background-position: center center;
+                height: 42vh;
+                background-position: 22% bottom; /* Maintains optimal subject focus framing across phone layouts */
             }
 
             main {
-                padding-top: 28vh;
+                padding-top: 32vh;
                 gap: 2rem;
             }
 
@@ -263,6 +265,7 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
+                margin-top: -60px;
             }
 
             h1 {
@@ -287,14 +290,17 @@
         </ul>
     </nav>
 
+    <!-- Full-Width Atmospheric Cinematic Backdrop Frame -->
     <div class="widescreen-backdrop"></div>
 
     <main>
+        <!-- Identity Stack Header with overlapping layout avatar positioning -->
         <div class="identity-stack">
             <img src="https://a.ltrbxd.com/resized/avatar/upload/1/6/9/6/0/4/2/0/shard/avtr-0-1000-0-1000-crop.jpg?v=a112d9f86b" alt="ankit" class="avatar">
             <h1>ankit.</h1>
         </div>
 
+        <!-- Coordinates Section -->
         <section class="coordinates-panel">
             <span class="panel-label">External Feeds</span>
             
