@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Clinical Forensic Medicine: Trauma & Wounds</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111611;
+            border-left: 3px solid #33cc66;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Trauma & Wounds
+            </div>
+            <h1>Clinical Forensic Medicine: Trauma & Wounds</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">
+                Forensic Traumatology &mdash; Reference File: "forensic_trauma_thermal_torture-35-41.pdf"
+            </p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions Bank</h2>
+        <h3 style="color: #a5a5a5;">Trauma & Injury Questions</h3>
+        <ol style="margin-bottom: 20px; color: #a5a5a5; font-size: 0.9rem;">
+            <li>Define injury and classify injury. (2073/10, 2055)</li>
+            <li>What are the differences between self-inflicted stab wound and homicidal stab injuries. Describe how the appearance of stab injuries depend upon different circumstances. (2072/10)</li>
+            <li>Define injury. Classify them based on the manner. Differentiate between incised wound and lacerated wound. (2071/11)</li>
+            <li>Define the terms: Bruising. (2070/11)</li>
+            <li>How would you differentiate between lacerated and incised wound. (2068/12, 2054, 2052)</li>
+            <li>Briefly describe the external injuries of photo 3. Assume that all the injuries to photo 3 are 5-10cm deep. List the possible injuries and significant findings of the chest and abdominal organs. (2065/7)</li>
+            <li>What are the legal and medical definitions of injury? (2063/8)</li>
+            <li>Draw and label: The external features of a stab wound over the abdomen produced by a khukuri. (2062/7)</li>
+            <li>Explain how a knife with a sharp edge, pointed tip and the second edge blunt may produce a stab wound, one of whose superficial ends may be blunt. (2062/1)</li>
+            <li>Differentiate: Stab and shot wounds; Incised wound and lacerated wound. (2061, 2056, 2052)</li>
+            <li>How would you differentiate between a laceration and an incised wound of the SCALP at the autopsy? (2060)</li>
+            <li>List the five most obvious differential characteristics of laceration and incisions. (2060)</li>
+            <li>Briefly describe four important differences between the characteristics of incised and lacerated wounds. (2058)</li>
+            <li>Differentiate between a suicidal and homicidal cut throat wound. Use diagrams to elaborate your answer. (2055)</li>
+            <li>Make a list of mechanical injuries. Describe the features, weapons likely to cause the same, differentiating points, changes occurring in chronological order and medico-legal importance of any two of them. (2054)</li>
+            <li>Give the format of injury report. (2054)</li>
+            <li>Make a list of injuries and wounds. Describe stab wounds and gunshot wounds. (2052)</li>
+            <li>Define injury. Differentiate between incised wound and incised looking wound. (2073/2)</li>
+            <li>What is injury? Write the conditions of grievous hurt according to Aparadh Samhita. (2080)</li>
+        </ol>
+
+        <!-- DEFINITIONS & CORE CONCEPTS -->
+        <h2>Core Forensic Definitions</h2>
+        
+        <h3>Injury</h3>
+        <ul>
+            <li><strong>Medically:</strong> A break of continuity of any tissue of the body.</li>
+            <li><strong>Legally:</strong> Any harm whatever illegally caused to any person in body, mind, reputation or property.</li>
+        </ul>
+
+        <h3>Wound</h3>
+        <p>Defined as the break of the natural continuity of any of the tissues of the living body.</p>
+
+        <h3>Assault vs. Battery</h3>
+        <ul>
+            <li><strong>Assault:</strong> An offer of threat or attempt to apply force to the body of another in a hostile manner, regardless of whether physical injury occurs (e.g., shaking a fist or head hostilely).</li>
+            <li><strong>Battery:</strong> The actual application of force to the body (e.g., beating or throwing an object), which does not strictly require direct body-to-body contact.</li>
+        </ul>
+
+        <h3>Hurt</h3>
+        <p>The causing of bodily pain, disease, or infirmity (the inability of an organ to perform its usual function) to a person. It explicitly excludes mental pain.</p>
+
+        <!-- LEGAL CLASSIFICATION IN NEPAL -->
+        <h2>Legal Framework: Simple vs. Grievous Hurt</h2>
+        
+        <h3>Simple Hurt</h3>
+        <p>An injury that is neither extensive nor serious, healing rapidly without leaving permanent deformity or disfiguration. Under Chapter 14, Section 191, Subsection 3 of the National Criminal Code, 2074 (2017), punishment includes imprisonment up to 3 years, a fine up to Rs 30,000, or both.</p>
+
+        <h3>Grievous Hurt (अंग भंग)</h3>
+        <p>An injury of a serious nature that does not heal rapidly and leaves permanent deformity or disfigurement. Under Subsection 4, punishment entails imprisonment up to 10 years and a fine up to Rs 1,00,000. If multiple organs share a function and only one is damaged, the penalty is halved; if it heals functionally with a scar, imprisonment is up to 3 years and a fine up to Rs 30,000.</p>
+
+        <div class="highlight-box">
+            <strong>Statutory Conditions of Grievous Hurt (Muluki Ain / Aparadh Samhita):</strong>
+            <ol style="margin-top: 10px; padding-left: 20px;">
+                <li>Permanent privation of the sight of an eye (blindness).</li>
+                <li>Permanent privation of the smell of the nose.</li>
+                <li>Permanent privation of the hearing of an ear.</li>
+                <li>Permanent privation of the speech of the tongue.</li>
+                <li>Destruction or permanent impairment of a woman's breast.</li>
+                <li>Emasculation/castration or permanent male impotence/loss of erection, or making a female sterile.</li>
+                <li>Privation or non-functional status of any member or joint of the vertebra, pelvis, upper or lower limbs.</li>
+                <li>Injury leading to permanent disability preventing occupational work.</li>
+            </ol>
+        </div>
+
+        <!-- COMPREHENSIVE CLASSIFICATION MATRIX -->
+        <h2>Classification of Injuries</h2>
+        <p>Injuries are comprehensively categorized across four main axes in clinical and legal settings.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Basis</th>
+                    <th>Categories & Sub-types</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Causative Factor</strong></td>
+                    <td>
+                        • <strong>Mechanical:</strong> Blunt force (abrasion, contusion, laceration, fracture/dislocation), Sharp force (incision, chop, stab), Firearm (wounds, blast injuries).<br>
+                        • <strong>Thermal:</strong> Cold (hypothermia, frost bite, trench foot), Heat (hyperpyrexia, heat exhaustion/cramps, burns, scalds).<br>
+                        • <strong>Chemical:</strong> Corrosion (strong acid/alkali), Irritation (weak acid/alkali).<br>
+                        • <strong>Physical:</strong> Electrical, Radiation (X-ray, UV, radioactive elements), Lightning.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Legal Basis</strong></td>
+                    <td>Simple hurt vs. Grievous hurt.</td>
+                </tr>
+                <tr>
+                    <td><strong>Medico-legal Basis</strong></td>
+                    <td>Suicidal, Homicidal, Accidental, Defense wounds, Fabricated/Artificial wounds.</td>
+                </tr>
+                <tr>
+                    <td><strong>Temporal Relation to Death</strong></td>
+                    <td>Antemortem wounds vs. Postmortem wounds.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- MECHANICAL INJURIES: BLUNT FORCE -->
+        <h2>Mechanical Injuries: Blunt Force</h2>
+        
+        <h3>1. Abrasion</h3>
+        <p>The removal of the superficial epithelial layer of skin by blunt force involving pressure and movement. They heal rapidly without scars unless extensive.</p>
+        <ul>
+            <li><strong>Scratch/Linear:</strong> Length with no significant width; narrow/sharp force. Leaves tissue tags at the end, pointing to direction (wide at start, narrow at end).</li>
+            <li><strong>Graze:</strong> Broad, rough sliding forces producing parallel longitudinal lines. Highly common in road traffic accidents ("road rash"). Includes <em>brush burns</em> (dragging) and <em>friction burns</em> (tangential touch with smooth surfaces/clothing).</li>
+            <li><strong>Pressure:</strong> Crushing of epidermis by perpendicular force with movement (e.g., ligature marks). Dries to a brown/black parchment-like look.</li>
+            <li><strong>Imprint:</strong> Pure perpendicular impact leaving the exact patterned shape of the object (e.g., vehicle radiator marks).</li>
+        </ul>
+
+        <h3>2. Bruise / Contusion</h3>
+        <p>Extravasation of blood into subcutaneous/subepithelial tissues due to capillary rupture by blunt force or pressure, without losing skin continuity.</p>
+        <ul>
+            <li><strong>Intradermal:</strong> Lies in immediate sub-epidermal layer; sharply defined patterned marks (whips, shoe soles).</li>
+            <li><strong>Subcutaneous:</strong> Lies in the fatty layer with blurred edges; dark red swelling.</li>
+            <li><strong>Deep:</strong> Deeper tissue bleeding; takes 1&ndash;2 days to appear ("delayed bruising").</li>
+            <li><strong>Patterned:</strong> Reflects weapon shape. Includes <em>Tram-line contusions</em> (two parallel lines from a rod/stick) and <em>six-penny bruises</em> (fingertip pressure in strangulation).</li>
+            <li><strong>Migratory / Ectopic:</strong> Blood shifts due to gravity and fascial planes. E.g., a blow to the forehead or an anterior cranial fossa fracture causes a <em>Black Eye</em>; a skull base fracture causes <em>Battle's sign</em> (behind ear) or <em>Raccoon eyes</em>.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Chronological Color Changes of a Bruise (Age Estimation):</strong><br>
+            • <strong>Fresh:</strong> Red (Fresh extravasation)<br>
+            • <strong>1&ndash;2 Days:</strong> Bluish (Deoxyhemoglobin)<br>
+            • <strong>4 Days:</strong> Bluish-black to Brown (Hemosiderin)<br>
+            • <strong>5&ndash;6 Days:</strong> Greenish (Hematoidin)<br>
+            • <strong>7&ndash;12 Days:</strong> Yellow (Bilirubin)<br>
+            • <strong>2 Weeks:</strong> Complete disappearance
+        </div>
+
+        <h3>3. Lacerated Wound</h3>
+        <p>Splitting or tearing of tissue from hard, blunt impacts exceeding tissue elasticity.</p>
+        <ul>
+            <li><strong>Characteristics:</strong> Ragged, irregular edges, tissue bridges/tags spanning the gap, crushed hair bulbs, minimal bleeding due to crushed, retracted vessels, and the frequent presence of foreign matter (mud, glass).</li>
+            <li><strong>Split Lacerations:</strong> Sandwiched tissue splits over bone. Can appear clean cut, mimicking an incision (<em>Incised-looking lacerated wound</em> over scalp, forehead, shin).</li>
+            <li><strong>Avulsion:</strong> Tangential shearing force tearing off a portion of skin/viscus (<em>flaying</em>). Severe variants include traumatic amputation and decapitation.</li>
+        </ul>
+
+        <!-- MECHANICAL INJURIES: SHARP FORCE -->
+        <h2>Mechanical Injuries: Sharp Force</h2>
+        
+        <h3>1. Incised Wound</h3>
+        <p>A clean-cut wound caused by sharp edges, being longer than it is deep. Edges are clean, well-defined, everted, and free from abrasions or contusions. Profuse external bleeding occurs because vessels are cleanly divided. Shows <em>tailing</em> (shallower at the termination point).</p>
+        
+        <h3>2. Chop Wound</h3>
+        <p>Inflicted by a heavy, sharp weapon (axe, meat cleaver) in a hacking motion. Margins are sharp but may show surrounding abrasion/bruising from weapon weight. The lower end (heel) of the blade strikes first and cuts deeper, indicating the position of the assailant.</p>
+
+        <h3>3. Stab Wound</h3>
+        <p>A penetrating trauma deeper than its surface length or width, caused by long, narrow, pointed weapons. 
+        Classified as <em>penetrating</em> (entry wound only into cavity), <em>perforating</em> (through-and-through entry and exit wounds), or <em>punctured</em> (terminates inside tissue outside a major cavity).</p>
+        <ul>
+            <li><strong>Hilt Mark:</strong> Full blade penetration causes the guard to strike the skin, leaving a patterned abrasion/bruising. Symmetrical at right angles; prominent above if a downward strike, below if an upward strike.</li>
+            <li><strong>Langer's Cleavage Lines:</strong> If the stab runs parallel to these skin lines, the wound remains a narrow slit. If it runs transversely, it gapes widely into a spindle shape.</li>
+            <li><strong>Weapon Cross-Section Indicators:</strong> Double-edged blades leave an elliptical slit with two sharp angles. Single-edged blades leave a wedge/tear-drop shape with one blunt/squared-off end (which may show *fish-tailing* splits).</li>
+        </ul>
+
+        <!-- SUMMARY COMPARISON TABLES -->
+        <h2>Forensic Differential Diagnosis Tables</h2>
+
+        <h3>I. Incised vs. Lacerated vs. Stab Wounds</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Incised Wound</th>
+                    <th>Lacerated Wound</th>
+                    <th>Stab Wound</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Weapon</strong></td>
+                    <td>Sharp edge (knife, razor)</td>
+                    <td>Hard blunt object (stick, stone)</td>
+                    <td>Pointed instrument (dagger, needle)</td>
+                </tr>
+                <tr>
+                    <td><strong>Margins</strong></td>
+                    <td>Smooth, clean cut, everted</td>
+                    <td>Irregular, ragged, undermined</td>
+                    <td>Clean cut, parallel edges</td>
+                </tr>
+                <tr>
+                    <td><strong>Surrounding</strong></td>
+                    <td>No abrasion or bruising</td>
+                    <td>Abrasion and bruising common</td>
+                    <td>Rare (unless hilt mark hits)</td>
+                </tr>
+                <tr>
+                    <td><strong>Dimensions</strong></td>
+                    <td>Longer than deep</td>
+                    <td>Irregular, longer than deep</td>
+                    <td>Depth is the greatest dimension</td>
+                </tr>
+                <tr>
+                    <td><strong>Tissue Bottom</strong></td>
+                    <td>Cleanly cut completely</td>
+                    <td>Tissue bridges, intact nerves/vessels</td>
+                    <td>Cleanly cut completely</td>
+                </tr>
+                <tr>
+                    <td><strong>Hemorrhage</strong></td>
+                    <td>Profuse and external</td>
+                    <td>Slight (vessels crushed/retracted)</td>
+                    <td>Variable; heavily internal</td>
+                </tr>
+                <tr>
+                    <td><strong>Hair Bulbs</strong></td>
+                    <td>Cleanly cut</td>
+                    <td>Crushed or torn</td>
+                    <td>Cleanly cut</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>II. Suicidal vs. Homicidal Cut Throat Wounds</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Suicidal Cut Throat</th>
+                    <th>Homicidal Cut Throat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Situation & Level</strong></td>
+                    <td>Left side across front; High (above thyroid cartilage)</td>
+                    <td>Mainly on the sides; Low (on/below thyroid cartilage)</td>
+                </tr>
+                <tr>
+                    <td><strong>Direction</strong></td>
+                    <td>Oblique (above downwards, left to right in right-handed)</td>
+                    <td>Transverse or from below upwards</td>
+                </tr>
+                <tr>
+                    <td><strong>Hesitation Cuts</strong></td>
+                    <td>Present (multiple superficial parallel cuts)</td>
+                    <td>Absent</td>
+                </tr>
+                <tr>
+                    <td><strong>Tailing</strong></td>
+                    <td>Present</td>
+                    <td>Absent</td>
+                </tr>
+                <tr>
+                    <td><strong>Defense Wounds</strong></td>
+                    <td>Absent</td>
+                    <td>Present (cuts on palms, ulnar forearms)</td>
+                </tr>
+                <tr>
+                    <td><strong>Carotid Artery / Vein</strong></td>
+                    <td>Often escape injury (head thrown back)</td>
+                    <td>Likely to be deeply severed</td>
+                </tr>
+                <tr>
+                    <td><strong>Cadaveric Spasm</strong></td>
+                    <td>Weapon may be firmly locked in victim's hand</td>
+                    <td>May grasp assailant's hair or clothing fragments</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>III. Postmortem Lividity vs. True Bruise</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Postmortem Staining (Lividity)</th>
+                    <th>True Bruise (Contusion)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Mechanism</strong></td>
+                    <td>Passive gravity distension of intact vessels</td>
+                    <td>Traumatic rupture and extravasation</td>
+                </tr>
+                <tr>
+                    <td><strong>Site</strong></td>
+                    <td>Extensive over dependent areas</td>
+                    <td>At site of impact; anywhere on the body</td>
+                </tr>
+                <tr>
+                    <td><strong>Elevation & Margins</strong></td>
+                    <td>Flat, no swelling; margins clearly defined</td>
+                    <td>Often swollen/edematous; margins diffuse/merge</td>
+                </tr>
+                <tr>
+                    <td><strong>Color Changes</strong></td>
+                    <td>Uniform bluish-purple color throughout</td>
+                    <td>Dynamic color progression based on age</td>
+                </tr>
+                <tr>
+                    <td><strong>On Incision</strong></td>
+                    <td>Blood is inside vessels, washes away easily; tissue pale</td>
+                    <td>Extravasated clotted blood, cannot wash; tissue deep red</td>
+                </tr>
+                <tr>
+                    <td><strong>Microscopy</strong></td>
+                    <td>Intravascular red blood cells; no inflammation</td>
+                    <td>Extravascular red blood cells; inflammatory reaction</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- CAUSES OF DEATH FROM WOUNDS -->
+        <h2>Pathology: Causes of Death from Wounds</h2>
+        <ul>
+            <li><strong>Immediate Causes:</strong> Acute massive hemorrhage, reflex vagal inhibition, profound traumatic/neurogenic shock, or direct mechanical disruption of a vital organ.</li>
+            <li><strong>Remote Causes:</strong> Systemic or localized secondary infection, gangrene/tissue necrosis, crush syndrome, surgical complications, thromboembolism, neglect, or the supervention of disease from a traumatic lesion.</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
