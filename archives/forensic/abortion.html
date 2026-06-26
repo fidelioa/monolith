@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Medicolegal Forensic Abortion Frameworks</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Abortion
+            </div>
+            <h1>Medicolegal Perspectives on Abortion</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Statutory Laws & Clinical Typologies - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- CHAPTER 1: DEFINITIONS -->
+        <h2>1. Conceptual Binaries & Terminology</h2>
+        <p>There is a file you can reference named "Source 6". Refer to this file by its name verbatim. In forensic medicine, a strict delineation exists between the clinical parameters and statutory legal interpretations of gestational termination.</p>
+
+        <ul>
+            <li><strong>Medical Definition:</strong> The expulsion or extraction of an embryo or fetus weighing 500 g or less from its mother when it is not capable of independent survival. It also encompasses spontaneous or induced expulsion of the products of conception before viability threshold established at 28 weeks.</li>
+            <li><strong>Premature Labor:</strong> The delivery of a fetus past the viability marker (after 28 weeks of pregnancy up to the 40th week).</li>
+            <li><strong>Legal Definition:</strong> The expulsion of the products of conception (ovum, embryo, or fetus) from the uterus at any point prior to full term. Statutory frameworks make zero distinction between abortion, miscarriage, and premature labor, rendering them entirely synonymous under the law.</li>
+        </ul>
+
+        <h3>Developmental Classification Matrix</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product of Conception</th>
+                    <th>Gestational Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><strong>Ovum</strong></td><td>Between 7 to 10 days post-fertilization.</td></tr>
+                <tr><td><strong>Embryo</strong></td><td>After 10 days until the completion of the 9th week.</td></tr>
+                <tr><td><strong>Fetus</strong></td><td>From more than 9 weeks until the moment of birth.</td></tr>
+            </tbody>
+        </table>
+
+        <!-- CHAPTER 2 & 3: CLASSIFICATION & CLINICAL TYPES -->
+        <h2>2. Taxonomic & Clinical Classification</h2>
+        <p>Abortion branches broadly into Spontaneous (Natural) lineages driven by physiological variables, and Induced (Artificial) pathways, which are categorized legally into Justifiable or Unjustifiable interventions.</p>
+
+        <h3>Spontaneous Etiology Matrix</h3>
+        <p>Spontaneous abortions are induced by systemic constitutional maternal disease, localized anomalies of the genital or reproductive organs, genetic predispositions, sudden psychological shock (acute fear, sorrow), or direct accidental physical trauma.</p>
+
+        <h3>Clinical Typology & Presentations</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Clinical Type</th>
+                    <th>Pathological Mechanism & Signs</th>
+                    <th>Cervical Os Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Threatened</strong></td>
+                    <td>Abortion has initiated but has not crossed the threshold of irreversible progression. Presents with moderate vaginal hemorrhage and mild pain in early weeks.</td>
+                    <td><strong>Closed</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Inevitable</strong></td>
+                    <td>Pathological changes have advanced to a stage where continuation is impossible. Presents with severe pain, intense uterine contractions, and a previously positive pregnancy test converting to negative.</td>
+                    <td><strong>Open / Dilated</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Incomplete</strong></td>
+                    <td>Continuous bleeding from the placental site due to partial retention of placenta or membranes. Complicated by severe anemia; requires surgical evacuation and adjuvant contraction-inducing prostaglandins.</td>
+                    <td><strong>Open / Dilated</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Complete</strong></td>
+                    <td>The entire product of conception is completely extruded from the uterine cavity.</td>
+                    <td>Closes post-expulsion</td>
+                </tr>
+                <tr>
+                    <td><strong>Missed</strong></td>
+                    <td>The fetus dies in utero and is retained for over 4 weeks. Initial 12 weeks mimic normal pregnancy, followed by brief bleeding, then persistent amenorrhea. The abdomen fails to enlarge; a brown vaginal discharge develops as products convert into a fleshy <strong>carneous or blood mole</strong> due to slow chorionic space hemorrhage.</td>
+                    <td>Closed (retained)</td>
+                </tr>
+                <tr>
+                    <td><strong>Septic</strong></td>
+                    <td>Infectious degradation of retained products, frequently complicating unrecognized or sub-optimally managed incomplete abortions.</td>
+                    <td>Variable</td>
+                </tr>
+                <tr>
+                    <td><strong>Habitual / Recurrent</strong></td>
+                    <td>The occurrence of spontaneous abortion across three or more consecutive gestations.</td>
+                    <td>Variable</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <strong>Mechanical Vectors of Separation:</strong><br>
+            Abortion mimics normal full-term labor via coordinated uterine contraction/retraction and cervical dilation. Mechanisms include:<br>
+            1. En-masse expulsion of the entire ovum along with separating Decidua vera and basalis layers (common in early weeks).<br>
+            2. Expulsion via retroplacental clot formation pushing the ovum into the cavity, forcing inversion of the decidua vera or parietalis.<br>
+            3. Incomplete expulsion featuring structural retention of placental fragments and membranes.
+        </div>
+
+        <!-- CHAPTER 4: ETIOLOGIES OF NATURAL ABORTION -->
+        <h2>3. Etiological Landscape of Spontaneous Abortion</h2>
+        <p>Approximately 30% of all established clinical pregnancies naturally terminate via spontaneous abortion. The underlying etiologies are multifactorial:</p>
+
+        <h3>I. Chromosomal Abnormalities</h3>
+        <p>Account for the vast majority of spontaneous abortions occurring within the first trimester. These are predominantly numeric aneuploidies arising from replication errors during gametogenesis, fertilization, or early zygotic cleavage:</p>
+        <ul>
+            <li><strong>Autosomal Trisomies:</strong> 50–60% frequency.</li>
+            <li><strong>Triploidy:</strong> 15% frequency.</li>
+            <li><strong>Monosomy X (45,X / Turner Syndrome):</strong> 7–15% frequency.</li>
+            <li><strong>Tetraploidy:</strong> 10% frequency.</li>
+        </ul>
+
+        <h3>II. Infectious Agents</h3>
+        <p>Pathogens localized to the cervix, endometrium, or male seminal fluid can spark abortion, frequently running an entirely asymptomatic course. Notable microbes include: <em>Toxoplasma gondii</em>, Herpes simplex virus, <em>Ureaplasma urealyticum</em>, <em>Mycoplasma hominis</em>, <em>Listeria monocytogenes</em>, <em>Chlamydia</em>, and <em>Gonorrhea</em>.</p>
+        
+        <div class="viva-note">
+            <strong>The Placental Pyrexia Rule:</strong><br>
+            Systemic maternal infections like pneumonia, malaria, typhoid, dysentery, or smallpox threaten fetal viability. Crucially, pathogens for <strong>Syphilis, Smallpox, and Rubella do not cross the placental barrier in early stages</strong>; hence, the fetus dies from severe maternal pyrexia rather than direct cytopathic effects of the organism. Syphilis strictly <em>never</em> induces abortion prior to mid-pregnancy.
+        </div>
+
+        <h3>III. Anatomical, Endocrine, & Immunological Factors</h3>
+        <ul>
+            <li><strong>Structural Anomalies:</strong> Septate or bicornuate uterine configurations account for 25–30% of structural failures. Submucosal leiomyomas and intrauterine adhesions (Synechiae/Ashman syndrome from aggressive curettage) alter implantation dynamics. <strong>Cervical incompetence remains the singular most common driver of second-trimester spontaneous abortions</strong>.</li>
+            <li><strong>Endocrine Derangements:</strong> Luteal phase progesterone insufficiency, polycystic ovarian syndrome (PCOS), uncontrolled diabetes mellitus, and thyrotoxicosis. In diabetes and thyrotoxicosis, metabolic stress elevates concentrations of Prostaglandins E2 and F2α within the amniotic fluid, directly provoking uterine contractions.</li>
+            <li><strong>Immunological Blocks:</strong> Antiphospholipid Syndrome (APS) presenting with lupus anticoagulant and anticardiolipin antibodies, causing microvascular placental thrombosis.</li>
+            <li><strong>Placental & Membrane Pathology:</strong> Acute hydramnios (amniotic fluid exceeding 2000 ml), hydatidiform molar degeneration, and placenta praevia (lower uterine segment attachment provoking severe second-trimester hemorrhages).</li>
+        </ul>
+
+        <h3>IV. Environmental, Paternal, & Toxicological Vectors</h3>
+        <ul>
+            <li><strong>Toxic Habits:</strong> Heavy tobacco consumption (&ge;14 cigarettes/day), chronic alcohol ingestion, and excessive caffeine intake (&gt;5 cups/day).</li>
+            <li><strong>Paternal Imprints:</strong> Semen analysis revealing a high proportion of morphologically abnormal spermatozoa can lead to lethal fetal structural abnormalities and repeated abortion cycles.</li>
+            <li><strong>Chemical Abortifacients & Poisons:</strong> Industrial exposure or toxic ingestion of elements like phosphorus, mercury, arsenic, or therapeutic quantities of quinine and ergot. <strong>Lead stands as the most dangerous abortifacient poison</strong>; in these exposures, the mother typically becomes gravely, systemically ill before any direct changes manifest within the ovum.</li>
+            <li><strong>Radiological Effects:</strong> Therapeutic ionizing radiation exposure exceeding 10 rads during early unrecognized pregnancies for maternal malignancies uniformly leads to immediate fetal death or severe congenital anomalies.</li>
+        </ul>
+
+        <!-- CHAPTER 5 & 8: JUSTIFIABLE & MTP ACT -->
+        <h2>4. Justifiable & Legal Termination Frameworks (MTP Act)</h2>
+        <p>Pursuant to international declarations (Declaration of Oslo), therapeutic abortion is entirely justified when executed in absolute good faith to preserve maternal life or prevent permanent, irreversible damage to her physical, mental, or social well-being.</p>
+
+        <h3>Statutory Provisions of the MTP Act [2066, 65]</h3>
+        <p>The law outlines a strict matrix defining conditions, gestations, and provider eligibility parameters for lawful terminations:</p>
+        <ul>
+            <li><strong>Up to 12 Weeks:</strong> Permissible for any pregnant woman based on her sole, uncoerced consent. Commonly requested under social criteria (unplanned pregnancy, low socioeconomic status, or contraceptive failure, which can legally apply to any pregnancy).</li>
+            <li><strong>Up to 18 Weeks:</strong> Permissible if the pregnancy is the direct result of humanitarian violations, specifically rape or incest, with the woman's consent.</li>
+            <li><strong>At Any Period of Gestation:</strong> Permissible if qualified medical practitioners advise that continuing the pregnancy carries grave risk to the life, physical health, or mental stability of the mother, or if diagnostic screening reveals severe fetal deformities (Eugenic indications such as Rubella/Mumps exposure, Thalidomide intake, Rh incompatibility, or Down's syndrome).</li>
+        </ul>
+
+        <h3>Procedural Safeguards & Infrastructure</h3>
+        <p>Legal terminations can only be conducted within designated facilities: state-operated government hospitals or authorized private clinics undergoing district public health or FHD auditing. The treating physician must adhere to three mandatory safeguards:</p>
+        <ol>
+            <li>Mandatory formal consultation and corroborative opinion from an independent medical practitioner, preferably an Obstetrician-Gynecologist.</li>
+            <li>Obtaining explicit, detailed written consent from the pregnant woman.</li>
+            <li>Ensuring the physical presence of a formal witness—preferably a registered nurse—throughout the entirety of the surgical or medical procedure.</li>
+        </ol>
+
+        <h3>Provider Eligibility Thresholds</h3>
+        <p>Mid-level providers (Staff Nurses and Auxiliary Nurse Midwives [ANMs]) are eligible if they possess a minimum of 12 months of pre-service midwifery training, active council registration, and formal in-service training certifications (post-abortion care, IUCD insertion, or skilled birth attendance). However, the <em>Strategic Plan for Second-Trimester Abortion</em> strictly restricts mid-trimester procedures to higher-level facilities, requiring specialized training exclusive to Obstetrician-Gynecologists and General Practitioners.</p>
+
+        <!-- CHAPTER 6, 7 & 10: CRIMINAL ABORTION -->
+        <h2>5. Criminal Abortion: Mechanisms & Fatalities</h2>
+        <p>Criminal abortion represents the intentional, unlawful destruction or expulsion of the fetus in absolute defiance of MTP Act provisions, lacking valid therapeutic indications. It is statistically most prevalent during the 2nd and 3rd months when gestational status becomes a certainty.</p>
+
+        <h3>Methods of Unlawful Induction</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Modality Class</th>
+                    <th>Specific Vectors & Materials Used</th>
+                    <th>Primary Mechanism of Action (MOA)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Ecbolic Drugs</strong></td>
+                    <td>Ergot extracts, synthetic estrogens, pituitary extracts, strychnine, and quinine.</td>
+                    <td>Directly forces hyper-physiological uterine smooth muscle contractions.</td>
+                </tr>
+                <tr>
+                    <td><strong>Emmenagogues</strong></td>
+                    <td>Estrogen formulations, savin, borax, and sanguinarine.</td>
+                    <td>Initiates, accelerates, or artificially augments menstrual flow.</td>
+                </tr>
+                <tr>
+                    <td><strong>Gastrointestinal &amp; GU Irritants</strong></td>
+                    <td><em>GI:</em> Castor oil, croton oil, jalap, senna, $MgSO_4$.<br><em>GU:</em> Cantharides, oil of turpentine, tansy, pennyroyal.</td>
+                    <td>Induces violent pelvic congestion and reflex pelvic/uterine smooth muscle spasms.</td>
+                </tr>
+                <tr>
+                    <td><strong>Systemic Toxins</strong></td>
+                    <td>Inorganic agents (lead, copper, mercury, iron) or organic irritants (<em>Abrus precatorius</em>, <em>Calotropis</em> juice, custard apple/carrot seeds, raw papaya/pineapple extracts, Utus/Fetex soap-KI pastes).</td>
+                    <td>Provokes profound maternal organ necrosis and toxemia, forcing fetal death as a secondary systemic byproduct.</td>
+                </tr>
+                <tr>
+                    <td><strong>General Physical Violence</strong></td>
+                    <td>Severe abdominal kneading, localized blows, kicks, tight binding, violent exercise (jumping from heights, rapid cycling), or abdominal <strong>cupping</strong> (vacuum suction using a heated wick beneath an inverted mug).</td>
+                    <td>Produces massive pelvic organ congestion and mechanical retroplacental hemorrhages.</td>
+                </tr>
+                <tr>
+                    <td><strong>Local Mechanical Violence</strong></td>
+                    <td>Aggressive syringing (Higginson’s syringe injecting soap water mixed with lysol, cresol, alum, or formalin); syringe vacuum aspiration; or manual <strong>abortion sticks</strong> (12–18 cm bamboo/wooden rods wrapped in cloth soaked with marking nut juice, arsenious oxide, or <em>Plumbago rosea</em>). Insufflation of air into the cavity.</td>
+                    <td>Directly separates the amniotic sac from the uterine wall, ruptures membranes to liberate endogenous prostaglandins, and forces mechanical cervical dilation.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>The Triad of Mortality (@HIE)</h3>
+        <p>The immediate, delayed, and remote causes of death stemming from criminal abortion follow structured pathophysiological pathways:</p>
+        
+        <h3>1. Immediate Causes</h3>
+        <ul>
+            <li><strong>Shock &amp; Haemorrhage:</strong> Massive blood loss secondary to direct instrumental perforation of the uterine fundus, vaginal vault, or cervix.</li>
+            <li><strong>Reflex Vagal Inhibition:</strong> Instantaneous neurogenic cardiac arrest initiated by mechanical stimulation or chemical irritation of the highly sensitive cervix or lower uterine segment by instruments or cold fluids.</li>
+            <li><strong>Air Embolism:</strong> Occurs when pressure-driven syringing or air-insufflation introduces gas into open, lacerated endometropathy sites. The introduction of ~100 ml of air into the uterine venous plexus leads to rapid right-heart outflow track occlusion and death within 10 minutes. Delayed air embolism can occur when a dense cervical mucus plug locks air within the cavity until post-operative placental separation opens the venous channels.</li>
+            <li><strong>Fat &amp; Amniotic Fluid Embolism:</strong> Fat emboli are triggered by corrosive chemical pastes (Lysol). Amniotic fluid emboli enter maternal circulation during mechanical disruption, provoking systemic Disseminated Intravascular Coagulation (DIC) and widespread microvascular fibrin deposition.
+                <p style="margin-top: 8px; font-style: italic;">Diagnostic Staining Protocols: <strong>Lendrum's Phloxine-Tartrazine stain</strong> highlights amniotic fluid emboli by staining keratinized amniotic squames bright red, nuclei blue, and background cytoplasm yellow. The <strong>WHO method</strong> is utilized to demonstrate keratin and mucin tracking within the pulmonary microvasculature.</p>
+            </li>
+        </ul>
+
+        <h3>2. Delayed &amp; Remote Causes</h3>
+        <ul>
+            <li><strong>Delayed (48–72 Hours):</strong> Fulminant septicemia, pyemia, and generalized peritonitis arising from unsterile techniques or retained necrotic tissue. The primary anaerobic pathogens isolated are <strong>Clostridium welchii</strong> (causing gas gangrene, uterine crepitus, and massive hemolysis) and <strong>Clostridium tetani</strong>.</li>
+            <li><strong>Remote Effects:</strong> Hepato-renal syndrome (jaundice and total renal suppression), subacute bacterial endocarditis, secondary pulmonary thromboembolism, empyema, meningitis, or the direct systemic poisoning effects of the ingested abortifacient compound.</li>
+        </ul>
+
+        <!-- CHAPTER 6: STATUTORY PUNISHMENTS -->
+        <h2>6. Penal Codes & Legal Consequences</h2>
+        <p>Criminal liability is strictly codified under <strong>Section 188 of the National Criminal Code 2074 (2017)</strong> of Nepal. The penal parameters scale according to gestational maturity and intent:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Statutory Violation</th>
+                    <th>Imprisonment Mandate</th>
+                    <th>Financial Penalty</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Illegal Abortion &le; 12 weeks gestation (Subsection 3)</td>
+                    <td>Up to 1 year</td>
+                    <td>Up to Rs. 10,000</td>
+                </tr>
+                <tr>
+                    <td>Illegal Abortion 12 to 25 weeks gestation (Subsection 3)</td>
+                    <td>Up to 3 years</td>
+                    <td>Up to Rs. 50,000</td>
+                </tr>
+                <tr>
+                    <td>Forced coercion or negative influence to abort (Clause 28A)</td>
+                    <td>3 to 6 months (applies to instigators &amp; providers)</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Conducting amniocentesis for sex determination</td>
+                    <td>3 to 6 months</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Executing sex-selective abortion post-determination</td>
+                    <td>Additional 1 year added to Subsection 3 penalties</td>
+                    <td>—</td>
+                </tr>
+                <tr>
+                    <td>Assault with intent to murder causing damage to fetus &ge;25 weeks (Subsection 5)</td>
+                    <td>Up to 5 years added to the standard attempt to murder charge</td>
+                    <td>—</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="viva-note">
+            <strong>Strict Liability Clauses:</strong><br>
+            • <strong>Subsection 4:</strong> It constitutes statutory illegal abortion if a live fetus is delivered during an illicit procedure and subsequently expires due to the physical toll of that inductive act.<br>
+            • <strong>Subsection 6:</strong> Any violent or unlawful act perpetrated upon a pregnant woman that accidentally results in abortion—even if there was zero initial intent to affect the fetus—is penalized with full imprisonment under Subsection 3.
+        </div>
+
+        <!-- CHAPTER 11, 12, 13: MEDICOLEGAL AUTOPSY & DIAGNOSIS -->
+        <h2>7. Forensic Post-Mortem & Living Diagnosis</h2>
+        
+        <h3>The Medico-Legal Triad of Autopsy Dissection</h3>
+        <p>In cases of suspected death via criminal abortion, the autopsy pathologist must employ specialized dissection techniques to preserve pelvic relationships and evidence of mechanical trauma:</p>
+        <ol>
+            <li>An initial external incision is made just lateral to the labia majora, carried posteriorly to encircle the anus, and tracking anteriorly up to the symphysis pubis, which is then formally divided.</li>
+            <li>The parietal peritoneum is incised around the pelvic brim. Via block retroperitoneal dissection, the entire pelvic viscera—encompassing the uterus, ovaries, vagina, anus, rectum, and urinary bladder—is extracted intact for comprehensive examination.</li>
+        </ol>
+
+        <h3>Autopsy Finding Checklist</h3>
+        <ul>
+            <li><strong>Ovarian Tracers:</strong> Presence of a prominent corpus luteum of pregnancy.</li>
+            <li><strong>Embolic Tracers:</strong> Large air bubbles trapped within the right ventricle of the heart and the major systemic venous architecture.</li>
+            <li><strong>Uterine Architecture:</strong> In fresh, un-decomposed bodies, infection by gas-forming anaerobes (<em>Cl. welchii</em>) leaves the uterine wall distinctly crepitant to palpation. Signs of recent pregnancy are visible within the vaginal vault, cervix, os, and endometrium.</li>
+            <li><strong>Foreign Matter:</strong> Discovery of chemical pastes, fluid residues, or physical foreign objects (abortion sticks, catheters, seaweed tents) trapped within the posterior vaginal fornix or cervical canal.</li>
+            <li><strong>Systemic Signs:</strong> Widespread acute cyanosis, breast secretory activity, and marks of local pelvic or generalized gastrointestinal inflammation.</li>
+        </ul>
+
+        <h3>Evaluating Evidentiary Conception Material</h3>
+        <p>Suspected tissue or clots must be thoroughly washed in water to dissolve overlying blood clots. If an embryo is not macroscopically identifiable (common up to the 9th week where products are expelled en-masse), histopathological confirmation relies on identifying specific microscopic architectures:</p>
+        <ul>
+            <li><strong>Decidual Cells:</strong> Large, fine, pale-staining round or polygonal cells displaying characteristic eccentric nuclei.</li>
+            <li><strong>Chorionic Villi:</strong> Finger-like projections boasting a central core of primitive connective tissue filled with embryonic blood vessels.</li>
+            <li><strong>Trophoblastic Layers:</strong> An inner cellular layer of Langhans (cytotrophoblast) and an outer syncytial layer (syncytiotrophoblast) presenting as a richly nucleated protoplasmic syncytium lacking distinct cell boundaries.</li>
+        </ul>
+
+        <h3>Corroborating Trauma-Induced Abortion</h3>
+        <p>To establish a rigorous legal causal link between physical trauma and abortion, four strict criteria must be satisfied:</p>
+        <ol>
+            <li>The traumatic event must be followed within a tight 24-to-48 hour window by the onset of clinical symptoms (pain, bleeding) leading to abortion.</li>
+            <li>The progress of the pregnancy prior to the trauma must have been documented as completely normal.</li>
+            <li>All maternal, genetic, or infectious predisposing factors known to cause spontaneous abortion must be definitively absent.</li>
+            <li>Gross examination of the placenta must show an adherent retroplacental clot or a distinct structural depression across the maternal placental surface.</li>
+        </ol>
+
+        <h3>Duties of the Medical Practitioner</h3>
+        <p>When encountering a case of suspected criminal abortion, the clinician's duties split into two rigid lines:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Professional Clinical Duties</th>
+                    <th>Statutory Legal Duties</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>• Document a comprehensive, meticulously objective clinical history.<br>• Stabilize and treat the patient using all available resuscitative facilities.<br>• Avoid performing exploratory or non-indicated surgical methods on the patient to prevent false charges of contributing to the abortion.<br>• Preserve all vaginal discharge, urine, feces, vomitus, and uterine aspirates for toxicological chemical analysis; preserve the uterus and contents for histopathology.</td>
+                    <td>• Maintain absolute professional medical secrecy while the patient is stable.<br>• If the patient is critically or dangerously ill, it becomes a mandatory legal duty to inform the police authorities immediately.<br>• If death appears imminent, the physician must urgently arrange for a magistrate to record the patient's formal <strong>Dying Declaration</strong>.<br>• In the event of death, the physician must withhold a standard death certificate, retain the body, and immediately notify the police.</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
