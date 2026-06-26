@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Clinical Forensic Medicine: Torture</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161111;
+            border-left: 3px solid #cc3333;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Torture
+            </div>
+            <h1>Systemic Torture & Medical Ethics</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">
+                Forensic Medicine &mdash; Reference File: "forensic_trauma_thermal_torture-17-34.pdf"
+            </p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions Bank</h2>
+        <h3 style="color: #a5a5a5;">Torture Frameworks</h3>
+        <ol style="margin-bottom: 20px; color: #a5a5a5; font-size: 0.9rem;">
+            <li>Define torture. (2071, 2068, 2062)</li>
+            <li>Define torture and briefly describe the different types of physical torture methods used in Nepal. List the significant findings of the physical torture methods you have described. (2067)</li>
+            <li>Describe the aims of torture. Briefly discuss the common methods of physical torture practiced in Nepal. (2065)</li>
+            <li>Define torture. List different types of torture with examples. (2074/2)</li>
+        </ol>
+
+        <!-- DEFINITIONS & CORE ELEMENTS -->
+        <h2>Definitions & Structural Elements</h2>
+        
+        <h3>General Definition</h3>
+        <p><strong>Torture</strong> means any act by which severe pain or suffering, whether physical or mental, is intentionally inflicted on a person.</p>
+
+        <h3>World Medical Association (WMA) Declaration</h3>
+        <p>In the context of detention and imprisonment, the WMA defines torture as:</p>
+        <blockquote>
+            "The deliberate, systemic or wanton infliction of physical or mental suffering by one or more persons acting alone or on the orders of any authority, to force the person to yield information, to make a confession or for any other reason."
+        </blockquote>
+
+        <h3>Core Constitutional Elements</h3>
+        <ul>
+            <li><strong>Torturer:</strong> The individual or authority executing or commanding the act.</li>
+            <li><strong>Victim:</strong> The person subjected to intentional suffering.</li>
+            <li><strong>Methods/Act:</strong> The physical, psychological, sexual, or pharmacological means used.</li>
+            <li><strong>Aims/Purpose:</strong> The explicit intent behind inflicting trauma.</li>
+        </ul>
+
+        <h3>Primary Strategic Aims</h3>
+        <ul>
+            <li>To extract information from individuals suspected of committing crimes against person/property, or participating in anti-national or terrorist activities.</li>
+            <li>To coerce an individual into signing documents confessing to a crime.</li>
+            <li>To secure testimony incriminating other targeted entities.</li>
+            <li>To take targeted revenge against an individual or their family members through violent acts like kidnapping or rape.</li>
+            <li>To systematically break down and destroy the personality of individuals who challenge or protest dictatorial regimes and social oppression.</li>
+        </ul>
+
+        <!-- CLASSIFICATION MATRIX OF METHODS -->
+        <h2>Classification of Torture Methods</h2>
+        <p>Torture is systematically classified into four distinct modalities depending on the physiological or psychological mechanism used.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Modality</th>
+                    <th>Sub-Types & Mechanisms</th>
+                    <th>Specific Typologies / Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Physical</strong></td>
+                    <td>Asphyxia, suspension, severe beatings, thermal/electrical application, position manipulation, and direct mutilation.</td>
+                    <td>
+                        • <strong>Falanga:</strong> Suspension upside down with blunt beating of the soles.<br>
+                        • <strong>Telefono:</strong> Repetitive open-palm slapping over both ears simultaneously.<br>
+                        • <strong>El Quirofano:</strong> Beating the abdomen while the upper body hangs unsupported off a table.<br>
+                        • <strong>Belena (The Roller):</strong> Pressing and rolling a heavily weighted pole over the legs and trunk.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Psychological</strong></td>
+                    <td>Deprivation techniques, coercion strategies, and manipulative communication protocols.</td>
+                    <td>
+                        • <strong>Deprivation:</strong> Restricting sleep, nutrition, sensory inputs, perception, and social contact.<br>
+                        • <strong>Coercion:</strong> Enforcing impossible choices, incongruent actions, systemic humiliation, and absolute blind obedience.<br>
+                        • <strong>Communication:</strong> Distorting perception, double-blinding, and conditioning new reflex patterns.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Sexual</strong></td>
+                    <td>Anatomical violation of private regions, humiliation tactics, and targeted physical mutilation.</td>
+                    <td>Forced nakedness in front of others, introducing foreign bodies into the rectum/vagina, suspending weights from the scrotum/penis, applying chemical irritants to the genitalia, or using trained animals.</td>
+                </tr>
+                <tr>
+                    <td><strong>Pharmacological</strong></td>
+                    <td>The forced delivery of psychotropic chemicals or toxic compounds to induce extreme internal distress.</td>
+                    <td>Forced ingestion or injection of psychotropic agents, or forced consumption of destructive materials like broken glass, boiling water, or caustic soaps.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- CLINICAL MANIFESTATIONS -->
+        <h2>Clinical Manifestations & Sequelae</h2>
+        
+        <h3>Physical Manifestation Profiles</h3>
+        <ul>
+            <li><strong>Early Presentations:</strong> Acute cutaneomuscular injuries including abrasions, lacerations, contusions, deep tissue hematomas, incised/penetrated wounds, sprains, and fractures. May also include acute head injuries, thoraco-abdominal visceral injuries, acute genital/anal trauma, burns, and the transmission of sexually transmitted diseases (STDs).</li>
+            <li><strong>Late Presentations:</strong> Chronic, permanent disfigurement and dense scar tissue. Skeletal complications like nonunion or malunion of poorly managed fractures, leading to joint hyper- or hypo-mobility. Chronic generalized pain, permanent peripheral nerve damage, and impaired hearing or vision.</li>
+        </ul>
+
+        <h3>Psychological Consequences</h3>
+        <ul>
+            <li><strong>Immediate Phase:</strong> Acute fragmentation or breakdown of the individual's personality structure, high risk of suicide, and acute outward aggression.</li>
+            <li><strong>Early Phase:</strong> Consistent re-experiencing of the traumatic event via intrusive flashbacks, terrifying nightmares, and severe sleep cycle disorders.</li>
+            <li><strong>Late Phase:</strong> Chronic severe headaches, functional isolation, emotional detachment, poor memory, severe anxiety disorders, and clinical psychosis.</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Post-Traumatic Stress Disorder (PTSD) Criteria:</strong><br>
+            Diagnosis within this forensic clinical framework requires the presence of three core symptom clusters: persistent re-experiencing of the event, active avoidance of stimuli linked to the trauma, and a continuous state of hyper-arousal. These symptoms must persist continuously for <strong>more than 1 month</strong>.
+        </div>
+
+        <!-- MEDICO-LEGAL ETHICS & ISTANBUL PROTOCOL -->
+        <h2>Medical Ethics & International Frameworks</h2>
+        
+        <h3>The Stand of the World Medical Association</h3>
+        <p>A medical clinician must never become directly or indirectly involved in the planning, training, or execution of torture. Indirect participation includes training interrogators in torture techniques, using medical knowledge to evaluate or monitor a victim's tolerance thresholds, or providing specific pharmaceuticals to assist in the process.</p>
+        
+        <div class="viva-note">
+            <strong>Absolute Ethical Rule:</strong><br>
+            A doctor shall not countenance, condone, or participate in the practice of torture or other forms of cruel, inhuman, or degrading procedures. Clinicians are strictly prohibited from providing premises, specialized instruments, chemical substances, or clinical knowledge to facilitate torture.
+        </div>
+
+        <h3>The Istanbul Protocol</h3>
+        <p>The <strong>Istanbul Protocol</strong> serves as the definitive international manual providing clear guidelines for clinicians and legal professionals to properly investigate, validate, document, and report suspected cases of torture. It outlines the standards for delivering objective, standardized medical reports to judicial and investigative authorities.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
