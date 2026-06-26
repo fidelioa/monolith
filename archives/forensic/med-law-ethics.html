@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Introduction to Forensic Medicine & Medical Jurisprudence</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Legal Medicine
+            </div>
+            <h1>Forensic Frameworks & Medical Jurisprudence</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Core Principles & Legal Systems - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- CORE DEFINITIONS & TAXONOMY -->
+        <h2>Foundational Frameworks</h2>
+        <ul>
+            <li><strong>Forensic Medicine (Forensic Pathology / Legal Medicine):</strong> The branch of medicine which deals with the application of facts and knowledge of medical science for the purpose of law or justice. It primarily addresses crimes against persons, where clinical examinations and medical documentation serve as evidence in criminal proceedings.</li>
+            <li><strong>Medical Jurisprudence:</strong> Deals with the legal responsibilities of the physician arising from the physician-patient relationship. This encompasses medical negligence, consent, rights and duties of doctors, serious professional misconduct, and medical ethics. Its operational boundaries are primarily regulated by the State Medical Council and its governing Act.</li>
+            <li><strong>Forensic Sciences:</strong> The broad application of knowledge and facts from diverse scientific disciplines for the purpose of law or justice. It relies on laboratory analysis and report generation (e.g., fingerprints, questioned documents, ballistics, DNA profiling).</li>
+        </ul>
+
+        <h3>Branches of Forensic Medicine</h3>
+        <ul>
+            <li><strong>Morbid Pathology / Autopsy:</strong> The post-mortem examination of the dead.</li>
+            <li><strong>Clinical Forensic Medicine:</strong> Injury evaluations, sexual offence examinations, torture victim evaluations, age estimation, mental state assessment, drunkenness testing, and female examinations related to pregnancy, abortion, and delivery.</li>
+            <li><strong>Medical Jurisprudence:</strong> Study of ethical codes, Medical Council Acts, and professional negligence.</li>
+            <li><strong>Toxicology:</strong> Divided structurally into Forensic and Clinical toxicology.</li>
+            <li><strong>Human Rights Forensics:</strong> Investigation of extrajudicial killings (EJK), custodial deaths, and systematic torture.</li>
+        </ul>
+
+        <h3>Purpose of Medico-Legal Investigations</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Criminal Discovery & Prosecution</th>
+                    <th>Protection of Individuals</th>
+                    <th>Public Health & Administration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        • Death investigation<br>
+                        • Criminal abortion cases<br>
+                        • Infanticide<br>
+                        • Torture victim identification<br>
+                        • Sexual offences & child abuse
+                    </td>
+                    <td>
+                        • Exonerating innocent parties<br>
+                        • Distinguishing overlooked accidents/suicides from homicides<br>
+                        • Defending against false allegations
+                    </td>
+                    <td>
+                        • Monitoring hazardous food, drugs, and chemicals<br>
+                        • Investigating deaths during treatment<br>
+                        • Managing insurance and compensation claims
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- MEDICAL ETHICS -->
+        <h2>Medical Ethics & Bioethical Principles</h2>
+        <p><strong>Medical Ethics</strong> is defined as the system of moral rules or principles governing medical professionals and the profession. It represents a voluntarily self-imposed code of conduct. Its primary clinical utility includes guiding proper medical practice, fulfilling legal/societal expectations, understanding physician duties, and avoiding allegations of malpractice or negligence.</p>
+
+        <h3>The Four Bioethical Pillars</h3>
+        <ol>
+            <li><strong>Principle of Respect for Autonomy:</strong> Recognizes the patient's absolute right to refuse medical intervention. The patient serves as the primary decision-maker unless deemed incompetent due to an inability to process/communicate basic information, gross psychosis, or severe dysfunction. Assured via informed expressed consent.</li>
+            <li><strong>Principle of Non-Maleficence:</strong> The foundational directive to do no harm. If a clinician cannot heal, they must not harm. Clinicians are obligated to prevent patients from harming themselves or others (e.g., physical assault, spreading infectious/venereal diseases). Risks may only be introduced if outbalanced by potential clinical benefits.</li>
+            <li><strong>Principle of Beneficence:</strong> The active duty to relieve suffering and optimize benefits for the patient. May extend to psychological support mechanisms, such as placebos, to achieve patient satisfaction.</li>
+            <li><strong>Principle of Justice:</strong> The requirement to exercise natural justice by treating all patients fairly, equitably, and without discrimination.</li>
+        </ol>
+
+        <!-- RIGHTS, DUTIES & PROFESSIONAL MISCONDUCT -->
+        <h2>Physician Rights, Duties & Misconduct</h2>
+        
+        <h3>Rights of a Registered Medical Practitioner</h3>
+        <ul>
+            <li>Right to choose patients, except during medical emergencies.</li>
+            <li>Right to display and utilize valid titles and verified qualifications.</li>
+            <li>Right to be appointed to public, local, or institutional hospitals.</li>
+            <li>Right to prescribe or dispense medical compounds.</li>
+            <li>Right to claim reasonable fees and compensation for services rendered.</li>
+            <li>Right to issue statutory health, medical, and fitness certificates.</li>
+            <li>Right to present expert medical evidence within a court of law.</li>
+        </ul>
+
+        <h3>Core Duties of the Physician</h3>
+        <ul>
+            <li><strong>To Patients:</strong> Fulfilling medical obligations, maintaining absolute patient secrecy, providing realistic disease prognoses, delivering dedicated services, obtaining informed written consent before procedures, and maintaining a chaperone/attendant whenever examining a patient of the opposite sex.</li>
+            <li><strong>Continuity of Care:</strong> A physician cannot arbitrarily abandon a patient. Treatment may only be discontinued if the patient refuses financial compensation, remains completely non-compliant, exerts undue pressure for unnecessary prescriptions, demands immoral acts, or if the physician becomes acutely unwell.</li>
+            <li><strong>To the Profession:</strong> Upholding the honor of the profession, maintaining active membership in medical societies, safeguarding professional integrity, and exposing unethical conduct.</li>
+            <li><strong>To Colleagues:</strong> Rendering professional services to colleagues and their immediate families free of charge as a professional courtesy. Consultations must prioritize the patient without rivalry, and temporary coverage for an absent colleague must be executed with professional integrity.</li>
+        </ul>
+
+        <h3>Professional Misconduct (Infamous Conduct)</h3>
+        <p>Defined as any behavior executed by a medical practitioner in pursuit of their profession that would be reasonably regarded as disgraceful or dishonorable by professional peers of good repute and competence.</p>
+
+        <div class="viva-note">
+            <strong>The 6 'A's Prohibited in Medical Practice:</strong><br>
+            <strong>A</strong>dvertisement • <strong>A</strong>ddiction • <strong>A</strong>lcohol • <strong>A</strong>ssociation • <strong>A</strong>bortion • <strong>A</strong>dultery
+        </div>
+
+        <ul>
+            <li><strong>Neglect of Responsibilities:</strong> Gross disregard of patient care or improper delegation of medical duties to incompetent subordinates.</li>
+            <li><strong>Abuse of Privileges:</strong> Prescribing unnecessary/controlled drugs outside of bonafide treatment, selling restricted poisons, or issuing false medical certificates.</li>
+            <li><strong>Legal Violations:</strong> Illegal termination of pregnancy, prenatal sex determination via ultrasonography, breaching patient confidentiality, executing emotional/sexual relationships with patients/families, or practicing under the influence of alcohol/drugs.</li>
+        </ul>
+
+        <h3>NMC Disciplinary Pathways</h3>
+        <p>The Professional Conduct and Health Committee of the Nepal Medical Council (NMC) investigates misconduct and can issue four determinations:</p>
+        <ol>
+            <li>Issue a formal warning and close the case.</li>
+            <li>Place the practitioner on probation by postponing judgment.</li>
+            <li>Order the erasure of the practitioner's name from the medical register for up to 2 years (known as the <strong>Professional Death Penalty</strong>).</li>
+            <li>Review applications for registration restoration, permitted 2 years post-erasure.</li>
+        </ol>
+
+        <!-- MEDICAL NEGLIGENCE -->
+        <h2>Medical Negligence & Legal Doctrines</h2>
+        <p><strong>Medical Negligence (Malpractice / Malpraxis)</strong> is a civil wrong (tort) defined as the breach of a duty of care owed by a clinician to a patient to exercise reasonable care and/or skill, directly resulting in bodily, mental, or financial disability. It can manifest as an <em>Act of Omission</em> (failing to do what is required) or an <em>Act of Commission</em> (doing what is prohibited).</p>
+
+        <h3>The 4 D's (Basic Ingredients)</h3>
+        <ul>
+            <li><strong>Duty:</strong> Proof that a formal doctor-patient relationship existed at the time of injury, establishing a legal duty of care. It is legally immaterial whether the treatment was provided free of charge.</li>
+            <li><strong>Dereliction (Breach):</strong> Failure of the clinician to maintain a reasonable standard of care and skill.</li>
+            <li><strong>Direct Causation:</strong> Proof that the breach of duty was directly responsible for the damage occurred.</li>
+            <li><strong>Damage:</strong> Objective assessment proving actual harm was sustained as a direct consequence of the breach.</li>
+        </ul>
+
+        <h3>Doctrine of Res Ipsa Loquitur ("The Thing Speaks for Itself")</h3>
+        <p>A legal doctrine where the facts are so clear-cut that negligence is evident on face value. The burden of proof shifts from the patient to the doctor.</p>
+        <div class="highlight-box">
+            <strong>Required Criteria:</strong><br>
+            1. The damage would not have occurred without negligence.<br>
+            2. There are no contributory causes.<br>
+            3. The doctor maintained exclusive control over the injury-producing procedure.
+            <br><br>
+            <strong>Classic Exemplars:</strong> Retaining surgical swabs/foreign bodies inside cavities, instruments slipping during surgery, operating on the wrong organ/wrong side/wrong patient, tight plaster casts causing gangrene, drug overdoses, mismatched blood transfusions, or wrong-site injections.
+        </div>
+
+        <h3>Malpractice Classifications & Legal Concepts</h3>
+        <ul>
+            <li><strong>Civil Malpractice:</strong> Bifid in nature—either patients seeking financial compensation for non-economic losses (General damages) or economic costs (Special damages), or doctors suing for unpaid fees. Clinicians are generally not liable for pure errors of judgment or diagnosis.</li>
+            <li><strong>Criminal Malpractice:</strong> Established when gross negligence demonstrates total disregard for human life and safety. Contributory negligence does not serve as a defense in criminal court. Exemplars include amputating a healthy limb or removing a healthy eye.</li>
+            <li><strong>Novus Actus Interveniens:</strong> A principle where the legal chain of causation shifts responsibility for subsequent disability or death from the original incident to a later, separate negligent action by a doctor.</li>
+            <li><strong>Contributory Negligence:</strong> Unreasonable conduct or lack of ordinary care by the patient (e.g., leaving against medical advice, withholding history) that combines with the doctor's negligence to contribute to the injury. The burden of proof rests on the doctor. *Note: Protected under the Good Samaritan Law unless the assistance is reckless or rash.*</li>
+            <li><strong>Vicarious Liability:</strong> The legal doctrine ("let the superior be responsible") holding an employer or hospital legally responsible for the negligent acts of their employees (doctors, nurses, staff) during their duties.</li>
+            <li><strong>Corporate Negligence:</strong> Failure of a hospital administration to provide safe accommodations, maintain functional equipment, supply unadulterated drugs, or select competent staff.</li>
+            <li><strong>Therapeutic Misadventure:</strong> An unintentional accident, mischance, or disaster resulting in injury or death due to a clinical act. Classified as Purely Therapeutic, Diagnostic, or Experimental.</li>
+        </ul>
+
+        <!-- STATUTORY NEPALESE LAWS -->
+        <h2>Statutory Nepalese Penal & Consumer Codes</h2>
+        
+        <h3>I. National Criminal Code (2074)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Offence Profile</th>
+                    <th>Statutory Penalties & Imprisonment Mandates</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Unlicensed Practice</strong></td>
+                    <td>Treating, prescribing, or performing surgery without a valid license.<br>
+                    • <strong>Standard:</strong> 3 years imprisonment + Rs. 30,000 fine.<br>
+                    • <strong>If Grievous Hurt caused:</strong> 15 years imprisonment.<br>
+                    • <strong>If Death caused:</strong> Lifetime imprisonment.</td>
+                </tr>
+                <tr>
+                    <td><strong>Treatment with Ill Intention</strong></td>
+                    <td>Intervention with intent to kill or cause deliberate harm.<br>
+                    • <strong>If Grievous Hurt caused:</strong> 10 years imprisonment + Rs. 100,000 fine.<br>
+                    • <strong>If Death caused:</strong> Lifetime imprisonment.</td>
+                </tr>
+                <tr>
+                    <td><strong>Recklessness or Negligence</strong></td>
+                    <td>• <strong>Recklessness causing death/grievous hurt:</strong> 5 years imprisonment + Rs. 50,000 fine.<br>
+                    • <strong>Medical Negligence causing death/grievous hurt:</strong> 3 years imprisonment + Rs. 30,000 fine.</td>
+                </tr>
+                <tr>
+                    <td><strong>Human Testing Without Consent</strong></td>
+                    <td>Conducting medical tests on a human subject without voluntary consent.<br>
+                    • <strong>Standard:</strong> 3 years imprisonment + Rs. 30,000 fine.<br>
+                    • <strong>If Grievous Hurt caused:</strong> 10 years imprisonment + Rs. 100,000 fine.<br>
+                    • <strong>If Death caused:</strong> Lifetime imprisonment.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>II. Consumer Protection Act 2075 (CoPRA) - Section 40</h3>
+        <ul>
+            <li><strong>Section 12 (Duties of Service Provider Breached):</strong> 2 to 3 years imprisonment, a fine of 3 to 5 lakhs, or both.</li>
+            <li><strong>Section 16 (Undue Professional Activities):</strong> 2 to 5 years imprisonment, a fine of 4 to 6 lakhs, or both.</li>
+            <li><strong>Section 18 (Prohibited Activities):</strong> 3 months to 1 year imprisonment, a fine of 1 to 3 lakhs, or both.</li>
+        </ul>
+
+        <!-- CONSENT & PRIVILEGED COMMUNICATION -->
+        <h2>Consent & Confidentiality Protocols</h2>
+        
+        <h3>Rules & Typologies of Consent</h3>
+        <p>Consent is a free, voluntary agreement made after understanding the nature of the act and its inherent risks. It must be clear, specific to each procedure, and obtained from a mentally sound individual who is a major (above 18 years). Blanket consent must be avoided.</p>
+        <ul>
+            <li><strong>Implied Consent:</strong> Inferred by actions (e.g., walking into a consultation room or rolling up a sleeve for an injection). Covers routine physical exams.</li>
+            <li><strong>Expressed Oral Consent:</strong> Verbal agreement for minor, non-routine non-invasive diagnostic or therapeutic interventions.</li>
+            <li><strong>Expressed Written Consent:</strong> Obligatory text agreement for major diagnostic and all surgical procedures.</li>
+            <li><strong>Informed Expressed Consent (Rule of Full Disclosure):</strong> Written consent obtained after explicit counseling regarding the nature of the illness, the proposed intervention, therapeutic alternatives, and associated complications.</li>
+        </ul>
+
+        <h3>Consent Deviations & Special Contexts</h3>
+        <ul>
+            <li><strong>Doctrine of Emergency:</strong> Permits treatment without prior consent for unconscious, critically ill, or mentally incapacitated patients when immediate action is necessary to preserve life. Law deems consent to be given.</li>
+            <li><strong>Doctrine of Therapeutic Privilege (Waiver):</strong> Allows a physician to withhold details from a highly fragile patient if full disclosure would cause medical harm, opting instead to counsel close relatives.</li>
+            <li><strong>Doctrine of Loco Parentis:</strong> In emergencies involving minors (under 16/18 years) where parents/guardians are physically unreachable, consent can be obtained from an accompanying adult in charge (e.g., a school teacher on a field trip).</li>
+            <li><strong>Autopsy & Organ Transplantation:</strong> Medico-legal autopsies require statutory authorization rather than family consent; clinical autopsies require written spousal/relative consent. Living organ donation requires an <em>Informed Witnessed Consent</em> from a donor &gt;18 years under the Human Organ Transplantation Act. Post-mortem organ harvesting requires a prior written will or consent from legal possessors.</li>
+        </ul>
+
+        <h3>Privileged Communication vs Secrecy</h3>
+        <p>While <strong>Professional Secrecy</strong> mandates keeping all patient information confidential (even extending past divorce or death), <strong>Privileged Communication</strong> allows a physician to share a patient's confidential data in good faith to protected authorities to preserve public health or state safety. To be legally protected, the disclosure must be made strictly to a party with a direct interest in the information.</p>
+        <ul>
+            <li><strong>Absolute Privilege:</strong> Statements made on the formal order of a court of law. Immune to defamation or breach of confidence actions.</li>
+            <li><strong>Qualified Privilege:</strong> Permitted when a patient poses an active threat to themselves or others; to report infectious or venereal diseases (e.g., exposing an epileptic/hypertensive commercial driver to their employer if they refuse to step down, or exposing communicable status if a patient refuses to protect others); or upon uncovering clear evidence of attempted homicide, suicide, child abuse, or sexual assault.</li>
+        </ul>
+
+        <!-- SPECIAL TOPICS & INTERNATIONAL DECLARATIONS -->
+        <h2>Special Forensic Clinical Topics</h2>
+        
+        <h3>Euthanasia (Mercy Killing)</h3>
+        <p>The painless termination of a person suffering from an incurable disease, irreversible brain damage, or advanced senility. <strong>There is no statutory provision for Euthanasia in Nepal.</strong></p>
+        <ul>
+            <li><strong>Active (Positive):</strong> An act of commission where death is directly induced (e.g., lethal drug overdose).</li>
+            <li><strong>Passive (Negative):</strong> An act of omission where life-sustaining interventions are discontinued, allowing nature to take its course.</li>
+            <li><strong>Voluntary:</strong> Induced at the explicit request of a competent patient.</li>
+            <li><strong>Involuntary / Non-Voluntary:</strong> Executed on a patient unable to express wishes (e.g., irreversible coma).</li>
+        </ul>
+
+        <h3>HIV / AIDS Forensic Management</h3>
+        <ul>
+            <li><strong>WHO Statement 1988:</strong> Mandates unbiased medical care for HIV-positive individuals; discrimination based on seropositivity is strictly unethical.</li>
+            <li><strong>Legal Status:</strong> Knowingly transmitting or communicating a communicable disease like AIDS is classified as a punishable offence.</li>
+            <li><strong>Post-Mortem Viability:</strong> The HIV virus remains active in a cadaver for up to <strong>17 days</strong> when maintained in a refrigeration defreeze unit. Autopsy precautions require knee-high rubber boots, waterproof nylon gowns, N95 respirators, double-gloving, and post-exposure prophylactic medication protocols.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>International Declarations Quick Review:</strong><br>
+            • <strong>Hippocratic Oath:</strong> Traditional physician ethical guide; heavily revised over time.<br>
+            • <strong>Declaration of Geneva:</strong> Modernized formulation of the Hippocratic Oath adopted by the WMA.<br>
+            • <strong>Declaration of Tokyo:</strong> Core guidelines prohibiting physician participation or monitoring of torture/cruel treatment.<br>
+            • <strong>Declaration of Helsinki:</strong> Ethical pillars regulating medical research involving human subjects/data.<br>
+            • <strong>Declaration of Oslo:</strong> WMA consensus framework regarding therapeutic abortion.<br>
+            • <strong>Declaration of Malta:</strong> Ethical management of hunger strikers (balancing autonomy vs beneficence).<br>
+            • <strong>Declaration of Lisbon:</strong> Codified statement promoting and endorsing universal patient rights.<br>
+            • <strong>Declaration of Ottawa:</strong> Child health advocacy framework partnering physicians, parents, and leaders.
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
