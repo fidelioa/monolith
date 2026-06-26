@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Transportation Injuries</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .flow-step {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #cccccc;
+            background: #111111;
+            padding: 8px 15px;
+            margin: 5px 0;
+            border-radius: 4px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: var(--accent-color);
+            margin: 4px 0;
+            font-weight: bold;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Transportation
+            </div>
+            <h1>Transportation Injuries</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Fast Track Clinical Science - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions Bank</h2>
+        <h3 style="color: #a5a5a5;">Pedestrian & Impact Dynamics</h3>
+        <ol style="margin-bottom: 20px; color: #a5a5a5; font-size: 0.9rem;">
+            <li>The non-braking vehicle in the RTI photo is at 60 km per hour and hits the man in the position shown. Describe the possible external and internal findings of the decedent of the fatal incident. (2066/7)</li>
+            <li>Describe the mechanism of injury production when an adult man is hit from behind by a Maruti car whose speedometer reads 80 km/hr at the time of impact. (2062/12, 2074/10)</li>
+            <li>Briefly explain: Primary impact injuries in road traffic accident. (2062/7)</li>
+            <li>Describe the various injuries seen on the body of a pedestrian hit from behind by a car that is at a speed of 50 km/hr without braking. (2062/1)</li>
+            <li>Describe various injuries seen in body of a pedestrian hit from behind by a car with braking. (2061)</li>
+            <li>A man is hit from behind by the vehicle in 80 km/hr? Write the mechanism of injury production in the man at the time of accident.</li>
+            <li>An adult pedestrian is hit from behind by a small car speeding at 60 km/hour and dies on the spot. Describe the most likely injuries sustained and the mechanism of their production. (2078)</li>
+        </ol>
+
+        <h3 style="color: #a5a5a5;">Occupant Trauma (Restrained & Unrestrained)</h3>
+        <ol style="margin-bottom: 20px; color: #a5a5a5; font-size: 0.9rem;" start="8">
+            <li>Describe the mechanism of injury production in an unrestrained front seat passenger of a vehicle in a frontal collision at a speed of 80 KMPH. (2068/12)</li>
+            <li>Describe the likely injuries produced by the seat belt in a front seat passenger in a vehicle in a frontal collision at a speed of 80 KMPH. (2068/12)</li>
+            <li>Describe the injuries and their mechanism of production in a front seat passenger not wearing a seat belt in a frontal collision in a Maruti car without an air bag and at a speed of 70 kmph. (2067/1)</li>
+            <li>Describe how different injuries are produced in different parts of the body of an unrestrained driver of a car in a frontal collision. (2064/1)</li>
+            <li>Describe the injuries in a RTA that a driver of non-braking car would sustain. (2075/11)</li>
+        </ol>
+
+        <h3 style="color: #a5a5a5;">Motorcycle & General Systems</h3>
+        <ol style="margin-bottom: 20px; color: #a5a5a5; font-size: 0.9rem;" start="13">
+            <li>Describe the mechanism of injury production in a motorcyclist decedent who was driving at 80 km/hr, in a frontal collision against two and half foot high cement divider. (2069/11)</li>
+            <li>Which side of a vehicular road - left or right - should a pedestrian walk in South Asia and why? Road Traffic Accidents occur as a result of factors that may be grouped under three headings: man, machine and environment. List four accidents factors for each of the three headings. (2064/8)</li>
+        </ol>
+
+        <!-- CORE DEFINITIONS -->
+        <h2>Definitions & Frameworks</h2>
+        <ul>
+            <li><strong>Transportation Injuries:</strong> Blunt force injuries that occur from travel on the ground, in the air, and on water[cite: 2]. The most frequent are motor vehicle collisions and pedestrian injuries, while railway accidents and aircraft crashes are less common[cite: 2].</li>
+            <li><strong>Motor Vehicle Collision / RTA:</strong> Occurs when a vehicle collides with another vehicle, pedestrian, animal, road debris, or other stationary barriers like a tree or utility pole[cite: 2].</li>
+            <li><strong>Hit-and-Run:</strong> Failure to stop at the scene of an accident by the driver of a motor vehicle without giving assistance or informing the police[cite: 2].</li>
+        </ul>
+
+        <h3>Epidemiological Risk Classification</h3>
+        <p>Road Traffic Accidents occur due to interacting factors classified under three principal vectors[cite: 2]:</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Man (Human Factors)[cite: 2]</th>
+                    <th>Machine (Vehicle Factors)[cite: 2]</th>
+                    <th>Environment (Infrastructure)[cite: 2]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>• Alcohol consumption[cite: 2]<br>• Drug impairment[cite: 2]<br>• Reckless/speeding drive[cite: 2]<br>• Driver fatigue/vision loss</td>
+                    <td>• Brake system failure<br>• Tire blowouts/tread wear<br>• Defective steering column<br>• Missing/non-functional airbags[cite: 2]</td>
+                    <td>• Roadway bumps/potholes[cite: 2]<br>• Poor layout/no dividers[cite: 2]<br>• Suboptimal lighting conditions<br>• Slick roads during weather</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- CLASSIFICATION FRAMEWORKS -->
+        <h2>Anatomical Trauma Classification</h2>
+        <p>Trauma sustained in transportation accidents is classified strictly according to the victim profile[cite: 2]:</p>
+        <ol>
+            <li><strong>Trauma Sustained by Pedestrian:</strong> Broken into Primary impact, Secondary impact, and Tertiary impact (Secondary) injuries[cite: 2].</li>
+            <li><strong>Trauma Sustained by Cyclist/Motorcyclist:</strong> Segmented into Primary impact, Secondary impact, and Secondary injuries[cite: 2].</li>
+            <li><strong>Trauma Sustained by Occupant of a Vehicle:</strong> Divided into injuries to the driver, front seat occupants, and back seat occupants (rare)[cite: 2].</li>
+        </ol>
+
+        <div class="viva-note">
+            <strong>Statistical Frequency Order (High to Low):</strong><br>
+            Pedestrians &gt; Driver &gt; Front seat passenger &gt; Rear seat passenger[cite: 2].
+        </div>
+
+        <!-- PEDESTRIAN INJURIES -->
+        <h2>Pedestrian Injury Mechanics (Waddell's Triad)</h2>
+        <p>When a vehicle strikes an adult pedestrian, injuries present as a classic three-part cascade known as <strong>Waddell's Triad</strong>[cite: 2]:</p>
+        
+        <div class="flow-step">1. Bumper Impact &rarr; Primary Impact Injury[cite: 2]</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">2. Hood & Windscreen Impact &rarr; Secondary Impact Injury[cite: 2]</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">3. Ground Impact &rarr; Secondary (Tertiary) Injury[cite: 2]</div>
+
+        <h3>I. Primary Impact Injuries</h3>
+        <ul>
+            <li><strong>Definition:</strong> Indicates the structural part of the body struck first by a component of the vehicle (bumper, wing, grill, headlight, radiator, door handle)[cite: 2].</li>
+            <li><strong>Bumper Injuries:</strong> In adults, the front bumper typically strikes at knee or calf level[cite: 2]. It produces soft tissue damage, muscle tears, pockets of hemorrhage, and skeletal fractures[cite: 2].</li>
+            <li><strong>Wedge-Shaped Fractures (Tibia & Fibula):</strong> Occur when the victim is hit in a standing position with feet firmly planted[cite: 2].
+                <ul>
+                    <li>The <strong>base</strong> of the triangular bone fragment indicates the exact <em>site of impact</em>[cite: 2].</li>
+                    <li>The <strong>apex</strong> points directly in the <em>direction the vehicle was traveling</em>[cite: 2].</li>
+                </ul>
+            </li>
+            <li><strong>Transverse/Spiral Fractures:</strong> A transverse fracture occurs if the leg was lifted off the ground during walking or running[cite: 2]. Fractures can also be spiral or multiple[cite: 2].</li>
+        </ul>
+
+        <h3>Skeletal Layout Profiles</h3>
+        <ul>
+            <li><strong>Standing Position:</strong> Bumper injuries are present in both legs at the exact same level[cite: 2].</li>
+            <li><strong>Walking or Running:</strong> Injuries present either in both legs at different vertical levels, or strictly in a single leg[cite: 2].</li>
+            <li><strong>Oriented Sideways:</strong> Bumper fracture presents in only one leg[cite: 2].</li>
+            <li><strong>Children:</strong> Due to lower height, the bumper strikes higher up, causing a fracture of the femur[cite: 2].</li>
+            <li><strong>Supine Position (Lying down):</strong> Primary bumper injuries are completely <em>absent</em>; tire marks are visible instead[cite: 2].</li>
+        </ul>
+
+        <h3>Velocity Modifiers (Speed vs Trajectory)</h3>
+        <ul>
+            <li><strong>Low Speed (&le; 20 km/hr):</strong> The victim is thrown off the bonnet, falling either forwards or to one side[cite: 2].</li>
+            <li><strong>Moderate Speed (20–60 km/hr):</strong> The victim is tipped onto the bonnet; the head strikes the windscreen or its surrounding metal frame[cite: 2].</li>
+            <li><strong>High Speed (60–100 km/hr):</strong> The victim is "scooped up" and projected high into the air, sometimes passing completely over the vehicle, avoiding the windshield entirely[cite: 2].</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Braking vs Acceleration Dynamics:</strong><br>
+            • <strong>During Braking:</strong> The front of the car dips. The distance from the heel to the fracture is <em>less than</em> the normal height of the bumper[cite: 2].<br>
+            • <strong>During Acceleration:</strong> The front lifts. The bumper fracture is located <em>higher</em> than its static position[cite: 2].
+        </div>
+
+        <h3>II. Secondary Impact Injuries</h3>
+        <ul>
+            <li><strong>Definition:</strong> Injuries caused by striking components of the vehicle following the primary impact as the victim is swept up or run over[cite: 2].</li>
+            <li><strong>Windshield Strikes:</strong> Head impacts against the windshield glass, its rim, or side pillars, producing extensive abrasions, bruises, and lacerations[cite: 2].</li>
+            <li><strong>Shattered Glass Lacerations:</strong>
+                <ul>
+                    <li><em>Sparrow Foot Lacerations:</em> Distinct V-shaped cuts produced by cubes of shattering safety glass[cite: 2].</li>
+                    <li><em>Dicing Injuries:</em> Superficial, square/rectangular cuts produced by fragments from side or back windows[cite: 2].</li>
+                </ul>
+            </li>
+            <li><strong>Run-Over Features:</strong> If the victim falls down and is run over by the wheels[cite: 2]:
+                <ul>
+                    <li><strong>Tire Tread Marks:</strong> Imprinted over unclothed areas on one side, paired with graze/sliding abrasions on the opposite pavement side[cite: 2].</li>
+                    <li><strong>Crushed Head:</strong> Gross cranial distortion and externalization of brain tissue[cite: 2].</li>
+                    <li><strong>Flail Chest:</strong> Compression of the chest causing multiple rib fractures, sternum/spine fractures, and catastrophic internal organ rupture[cite: 2].</li>
+                    <li><strong>Avulsion (Flaying/Degloving):</strong> Occurs when a spinning tire moves over a fleshy area, tearing the skin and subcutaneous tissue completely away from underlying fascia[cite: 2].</li>
+                    <li><strong>Thermal Trauma:</strong> Friction burning and singeing of the skin from the undercarriage[cite: 2].</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>III. Secondary (Tertiary) Ground Injuries</h3>
+        <ul>
+            <li><strong>Definition:</strong> Damage resulting from body parts striking the pavement or ground surface after flying over or being thrown off the vehicle[cite: 2]. These are often <em>more lethal</em> than primary injuries, particularly to the head, chest, and pelvis[cite: 2].</li>
+            <li><strong>Skeletal & Cutaneous Trauma:</strong> Severe sliding/graze abrasions ("skidding brush burns") and lacerations over bony prominences (elbows, knees)[cite: 2]. Fractures of the base of the skull, ribs, extremities, and cervical spine occur due to direct contact or hyperflexion/hyperextension[cite: 2].</li>
+            <li><strong>Contrecoup Brain Injury:</strong> Severe brain damage frequently occurs <em>without</em> any associated skull fracture[cite: 2]. This happens because the moving head of the flying victim is abruptly decelerated upon striking the immovable road surface, causing the brain to impact the opposite interior wall of the cranium[cite: 2].</li>
+        </ul>
+
+        <!-- SCENARIO RECONSTRUCTION -->
+        <h2>Scenario Reconstruction: Adult Hit From Behind at 80 km/hr</h2>
+        <div class="highlight-box">
+            <strong>Full Cascade & Chronology (2062/12, 2074/10, 2078):</strong><br>
+            When an adult pedestrian is struck from behind by a non-braking car traveling at 80 km/hr, the trauma profile unfolds across multiple phases due to the vehicle's high speed[cite: 2]:
+            <br><br>
+            <strong>1. Primary Impact Phase:</strong> The bumper makes contact with the lower limbs first[cite: 2]. This produces rectangular patterned imprints and muscle hemorrhages in the calf region, along with comminuted, wedge-shaped, or spiral fractures of the tibia and fibula (apex pointing forward)[cite: 2]. Simultaneously, the sudden force causes a hyperextension <strong>whiplash injury</strong> to the neck[cite: 2]. As the body pivots onto the hood, the impact against the buttocks and upper thighs creates parallel striae, stretch lacerations, and fascial avulsions[cite: 2].
+            <br><br>
+            <strong>2. Secondary Impact Phase:</strong> The pedestrian's torso and pelvis slam onto the hood, while the head hits the windshield or frame[cite: 2]. This results in complex pelvic fractures, driving the head of the femur directly into the acetabulum[cite: 2]. It also causes extensive cranio-cerebral lacerations and fractures of the cervical spine[cite: 2].
+            <br><br>
+            <strong>3. Secondary (Tertiary) Ground Phase:</strong> Due to the 80 km/hr speed, the victim is thrown over the roof of the vehicle into the air, which can strip off clothing[cite: 2]. Landing on the hard road causes severe sliding/graze abrasions, fractures of the base of the skull, rib fractures, and contrecoup brain contusions[cite: 2].
+            <br><br>
+            <strong>4. Run-Over Phase:</strong> While lying helpless on high-speed highways, the victim may be run over by subsequent vehicles[cite: 2]. This leaves tire tread marks, grease/dirt transfers, skin degloving, and severe crushing injuries[cite: 2].
+        </div>
+
+        <!-- MOTORCYCLE AND CYCLE INJURIES -->
+        <h2>Motorcycle & Bicycle Trauma</h2>
+        <p>An impact that might result in minor injuries in an enclosed automobile can easily result in immediate fatality for a motorcyclist due to high speed and inherent vehicle instability[cite: 2]. Most fatalities stem from the rider being ejected from the vehicle onto the roadway[cite: 2].</p>
+
+        <h3>Trauma Patterns</h3>
+        <ul>
+            <li><strong>Primary Injuries:</strong> Result from the initial impact against an object (e.g., a 2.5-foot cement divider)[cite: 2]. These typically manifest as open, compound fractures of the tibia and fibula[cite: 2].</li>
+            <li><strong>Secondary Injuries:</strong> Result from hitting the ground or a divider after ejection[cite: 2]. These include severe fractures of the skull, ribs, and cervical spine, along with deep cerebral contusions and extensive graze abrasions across the road[cite: 2].</li>
+            <li><strong>Hinge Fracture ("Motorcyclist's Fracture"):</strong> A classic transverse fracture that runs completely across the base of the skull, splitting it into anterior and posterior halves[cite: 2].</li>
+        </ul>
+
+        <h3>Passenger (Pillion Rider) Fall Diagnostics</h3>
+        <p>Pillion riders falling off the back of a motorcycle sustain a specific injury pattern due to backward acceleration[cite: 2]:</p>
+        <ol>
+            <li>Lacerations localized to the occipital region (back of the head)[cite: 2].</li>
+            <li>Linear fractures through the posterior cranial fossa[cite: 2].</li>
+            <li>Contrecoup contusions involving the frontal lobes of the brain[cite: 2].</li>
+            <li>Extensive abrasions across the back, elbows, or face (if thrown forward)[cite: 2].</li>
+        </ol>
+
+        <div class="highlight-box">
+            <strong>Unique Forensic Variants:</strong><br>
+            • <strong>Under-Running / Tail-Gating:</strong> A unique fatal injury where a motorcyclist drives directly under the rear of a high-clearance truck, causing severe head trauma or immediate decapitation[cite: 2].<br>
+            • <strong>Bicycle Spoke Injury:</strong> A unique pediatric and rural trauma pattern seen in Nepal where an extremity is caught in a moving wheel, causing stripping and degloving of the skin from the lower leg[cite: 2].<br>
+            • <strong>Crash Helmet Efficacy:</strong> Correct use reduces the objective risk of head injury by approximately 30% and overall fatalities by 40%[cite: 2].
+        </div>
+
+        <!-- VEHICLE OCCUPANTS -->
+        <h2>Vehicle Occupant Dynamics (Frontal Impact)</h2>
+        <p>When a vehicle moving at high speed (e.g., 70–80 km/hr) experiences a frontal collision or sudden deceleration, unrestrained occupants continue moving forward at that same speed, colliding with the interior components of the cabin[cite: 2].</p>
+
+        <h3>1. The Unrestrained Driver Cascade</h3>
+        <div class="flow-step">Deceleration &rarr; Body slides forward and upward[cite: 2]</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Lower legs strike fascia parcel shelf &rarr; Tibia/ankle fracture[cite: 2]</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Knees slam into dashboard &rarr; Patella or distal femur fracture[cite: 2]</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Energy transmits along femur &rarr; Hip joint dislocation / femoral neck fracture[cite: 2]</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Torso strikes steering wheel &rarr; Sternum/rib fractures, liver/spleen rupture, cardiac contusion[cite: 2]</div>
+        <div class="flow-arrow">&darr;</div>
+        <div class="flow-step">Head strikes windshield/pillar &rarr; Whiplash injury, sparrow-foot glass lacerations[cite: 2]</div>
+
+        <h3>2. The Unrestrained Front Seat Passenger</h3>
+        <ul>
+            <li>Follows the same forward trajectory as the driver but lacks the steering wheel to halt momentum[cite: 2]. They slam directly into the dashboard and windshield at full velocity[cite: 2].</li>
+            <li>In front-to-side collisions, severe facial lacerations occur from shattering side glass[cite: 2]. If the impact is on the left side, the injuries are much more severe on the left side of the passenger's face and torso[cite: 2].</li>
+        </ul>
+
+        <h3>3. Rear Seat Passengers</h3>
+        <ul>
+            <li>Sustain head and chest injuries from striking the back of the front seats[cite: 2].</li>
+            <li>At high speeds, they can be thrown forward over the front seats, colliding with front occupants or being ejected through the front windshield[cite: 2].</li>
+        </ul>
+
+        <!-- RESTRAINED CASES & SEAT BELT SYNDROME -->
+        <h2>Restrained Dynamics & Seat Belt Syndrome</h2>
+        <p>While seat belts significantly decrease mortality, their use introduces unique trauma patterns during high-speed deceleration[cite: 2].</p>
+
+        <h3>Seat Belt Syndrome</h3>
+        <p>Acute, violent forward flexion over a standard lap-strap type belt can cause specific internal injuries[cite: 2]:</p>
+        <ul>
+            <li>Diagonal contusions and ecchymosis across the chest and abdomen matching the belt's position[cite: 2].</li>
+            <li>Compression and tearing of the mesentery, omentum, or small intestine, which can lead to acute perforation or avulsion[cite: 2].</li>
+            <li>Rupture of the urinary bladder due to direct pressure from the lower lap strap[cite: 2].</li>
+            <li>Severe compression of the abdominal aorta against the spine during forced flexion over a lap belt[cite: 2].</li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Submarining:</strong><br>
+            A dangerous phenomenon where a passenger (especially a child) slides downward underneath the lap strap during deceleration, causing the belt to ride up and compress the vulnerable soft tissues of the upper abdomen and lower chest[cite: 2].
+        </div>
+
+        <h3>Airbag Mechanism</h3>
+        <p>In modern vehicles, crash sensors immediately detect sudden deceleration and trigger the rapid decomposition of <strong>sodium azide</strong>[cite: 2]. This releases <strong>nitrogen gas</strong> to instantly inflate the airbag, dampening the acceleration-deceleration forces before the occupant strikes the steering column or dashboard[cite: 2].</p>
+
+        <!-- MULTI-DIRECTIONAL CRASH DYNAMICS -->
+        <h2>Multi-Directional Crash Dynamics</h2>
+
+        <h3>Side Impact Crashes (T-Bone)</h3>
+        <p>Injuries are concentrated on the side of the body that receives the direct impact[cite: 2].</p>
+        <ul>
+            <li><strong>Right-Sided Impact (Driver's Side):</strong> Causes deep dicing injuries, abrasions, and lacerations on the right side of the face and extremities[cite: 2]. It can also cause fractures of the right ribs, right kidney lacerations, liver lacerations, and traumatic transection of the aorta[cite: 2].</li>
+            <li><strong>Left-Sided Impact:</strong> Unrestrained occupants are often thrown across the cabin or ejected through the opposite doors[cite: 2]. This frequently results in lacerations to the heart, liver, and spleen, along with cervical spine or basilar skull fractures[cite: 2].</li>
+        </ul>
+
+        <h3>Back Impact Injuries (Rear-End Collision)</h3>
+        <ul>
+            <li>The striking force causes the vehicle to accelerate forward rapidly[cite: 2]. Inertia keeps the occupant's body momentarily in place, forcing the head into extreme hyperextension over the seat back[cite: 2].</li>
+            <li>As the body catches up, the head rebounds into sudden flexion, causing a severe <strong>whiplash injury</strong> to the cervical spine[cite: 2]. This risk can be minimized with properly adjusted head restraints[cite: 2].</li>
+        </ul>
+
+        <h3>Roll-Over or Overturns</h3>
+        <ul>
+            <li>Occupants are violently tossed inside the cabin and can become pinned or crushed beneath the vehicle's frame[cite: 2].</li>
+            <li>This often leads to classic <strong>traumatic asphyxia</strong> due to prolonged chest compression, along with serious crushing injuries to the heart, lungs, liver, spleen, and kidneys[cite: 2].</li>
+            <li>Trapped occupants also face secondary risks of severe burns, asphyxiation, or drowning depending on where the vehicle comes to rest[cite: 2].</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
