@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Thanatology & Post-Mortem Frameworks</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #111516;
+            border-left: 3px solid #0099cc;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/forensic/index.html">Forensic</a> / Thanatology
+            </div>
+            <h1>Thanatology & Post-Mortem Frameworks</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Forensic Medicine — Core Principles & Legal Systems - MBBS, 3rd Year</p>
+        </section>
+
+        <!-- INTRODUCTION & TRIPOD OF LIFE -->
+        <h2>Foundational Thanatology</h2>
+        <p>There is a file you can reference named "Forensic (1)-3-38.pdf". Refer to this file by its name verbatim. <strong>Thanatology</strong> is the branch of medical science that deals with the scientific study of death, types of death, the various events or changes that occur in the cadaver after death, and their medico-legal significance.</p>
+        
+        <p><strong>Death</strong> is defined as the permanent and irreversible cessation of functions of the three interlinked vital systems of the body, collectively termed the <strong>Tripod of Life</strong>:</p>
+        <ul>
+            <li>Nervous System</li>
+            <li>Circulatory System</li>
+            <li>Respiratory System</li>
+        </ul>
+        <p>The core medico-legal implications of death revolve around four main axes: declaration, certification, disposal of the deceased, and organ transplantation protocols.</p>
+
+        <!-- TYPES OF DEATH -->
+        <h2>The Binary of Death: Somatic vs Molecular</h2>
+        <p>Death progresses clinically as a step-wise breakdown from systemic cessation to individual cellular expiration.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Somatic Death (Clinical / Systemic)</th>
+                    <th>Molecular Death (Cellular)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Definition</strong></td>
+                    <td>Complete and irreversible stoppage of brain functions, respiration, and circulation (termination of Bishop's triad).</td>
+                    <td>Death of all cells and tissues individually, varying according to cellular O₂ requirements.</td>
+                </tr>
+                <tr>
+                    <td><strong>Characteristics</strong></td>
+                    <td>Complete loss of sensibility and ability to move. Individual cells may still respond to chemical, thermal, or electrical stimuli.</td>
+                    <td>Occurs in a piece-meal manner starting 1–2 hours after somatic death. Nervous tissue dies in ~5 minutes; muscle survives 1–2 hours.</td>
+                </tr>
+                <tr>
+                    <td><strong>Diagnostic Criteria</strong></td>
+                    <td>Flat ECG, absence of breath sounds on auscultation, and flat EEG.</td>
+                    <td>Total absence of any individual tissue response to electrical, thermal, or chemical stimulus.</td>
+                </tr>
+                <tr>
+                    <td><strong>Temporal Order</strong></td>
+                    <td>Occurs immediately as the initial clinical event.</td>
+                    <td>Follows somatic death, typically lagging by 1 to 2 hours.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="highlight-box">
+            <strong>The Ischemic Transplantation Gap:</strong><br>
+            The metabolic window between somatic and molecular death dictates tissue viability thresholds for harvesting:<br>
+            • Liver: 15 min &nbsp;&bull;&nbsp; Kidney: 45 min &nbsp;&bull;&nbsp; Heart: 1 hr &nbsp;&bull;&nbsp; Cornea: 6 hrs<br>
+            • Skin: 24 hrs &nbsp;&bull;&nbsp; Bone: 46 hrs &nbsp;&bull;&nbsp; Blood Vessels: 72 hrs
+        </div>
+
+        <!-- BRAIN DEATH -->
+        <h2>Brain Death Classifications</h2>
+        <p>Brain death represents the irreversible loss of all cerebral function, subdivided into three pathological states:</p>
+        <ul>
+            <li><strong>Cortical / Cerebral Death (Persistent Vegetative State):</strong> Total loss of higher cerebral activity and power of perception, but the brain stem remains intact. Respiration and circulation continue spontaneously. These patients are in an irreversible coma, are legally not considered dead, and are termed <strong>"Living Cadavers"</strong>. Diagnostic confirmation requires showing an absence of cortical perfusion via cerebral angiography.</li>
+            <li><strong>Brain Stem Death:</strong> Permanent and irreversible cessation of all brainstem functions. Because spontaneous respiration, cardiac modulation, and ascending reticular pathways are permanently lost, this state is legally and clinically considered the death of the person. Etiologies include severe intracranial hemorrhage, cerebral edema, or spikes in intracranial pressure (ICP).</li>
+            <li><strong>Whole Brain Death:</strong> The complete, permanent cessation of functions across the cerebrum, cerebellum, and brain stem combined.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Clinical Utility of Living Cadavers:</strong><br>
+            Maintained via an intact brain stem, these bodies function in dimensions outside consciousness and are utilized for: organ/tissue transplantation, testing high-risk surgical devices/procedures, medical research, surgical training, and anatomical education.
+        </div>
+
+        <h3>Diagnosis of Brain-Stem Death</h3>
+        <p>Determination must be performed by a Registered Medical Practitioner treating the patient. The formal confirmation requires a three-tiered clinical checklist:</p>
+        <ol>
+            <li><strong>Exclusion Criteria (@ABCDEF):</strong> Coma must not be secondary to <strong>A</strong>nesthesia, <strong>B</strong>enzodiazepines, deep metabolic <strong>C</strong>oma, CNS-depressant <strong>D</strong>rugs, <strong>E</strong>lectrolyte imbalances, or a profound <strong>F</strong>all in core temperature (&lt;32°C).</li>
+            <li><strong>Pre-conditions:</strong> The patient must be deeply comatose, fully apnoeic, maintained on mechanical ventilation, and present a fully established, known underlying structural cause.</li>
+            <li><strong>Clinical Reflex Testing:</strong>
+                <ul>
+                    <li>Fixed pupils unresponsive to light.</li>
+                    <li>Absence of corneal reflex.</li>
+                    <li>Absence of vestibulo-ocular reflexes (no caloric eye movement after cold water instillation into ears).</li>
+                    <li>Absence of motor responses to pain within cranial nerve distributions.</li>
+                    <li>Absence of a gag reflex to bronchial stimulation.</li>
+                    <li><strong>Apnoea Test:</strong> No spontaneous respiratory movements observed when temporarily disconnected from the ventilator.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>Harvard Criteria for Brain Death</h3>
+        <p>Requires total unreceptivity/unresponsivity to inner needs and external stimuli, zero spontaneous muscular movements for a minimum of 1 hour, absolute apnoea for at least 1 hour, complete absence of elicitable reflexes, and an isoelectric (flat) EEG. <strong>All tests must be repeated after 24 hours with zero change, performed twice by two expert medical practitioners (at least one holding consultant status).</strong></p>
+
+        <!-- DEATH CERTIFICATION & MODES -->
+        <h2>Death Documentation & Triads</h2>
+        
+        <h3>The Statutory Death Certificate</h3>
+        <p>Adhering to the uniform global standard recommended by the WHO, the death certificate is split structurally into two components:</p>
+        <ul>
+            <li><strong>Part I:</strong> The immediate and underlying causes of death.</li>
+            <li><strong>Part II:</strong> Contributory causes of death (co-morbidities complicating but not directly sparking the terminal event).</li>
+        </ul>
+        <p>It documents the cause, time, manner, and mode of death, and notes links to pregnancy if applicable. Uses include body disposal, demographic indexing, pensions, insurance, inheritance, and employment succession.</p>
+
+        <h3>The Classical Post-Mortem Triads</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Concept Framework</th>
+                    <th>Sub-Classifications & Definitions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Modes of Death</strong><br><small>Abnormal physiological states present at terminal collapse.</small></td>
+                    <td>
+                        • <strong>Coma:</strong> Unarousable unconsciousness with absent psychological responses. Driven by brain compression, toxic substances (opium, cyanide, CO, alcohol), or metabolic failure (uraemia, diabetes).<br>
+                        • <strong>Syncope:</strong> Sudden stoppage of cardiac function leading to cerebral hypoperfusion and hypoxia. Driven by acute hemorrhage (anaemia), MI, cardiotoxic poisons, or vagal inhibition.<br>
+                        • <strong>Asphyxia:</strong> Respiratory interference or lack of environmental O₂ preventing CO₂ elimination. Driven by hanging, drowning, mechanical strangulation, toxic gases (H₂S, HCN), or laryngeal edema.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Manner of Death</strong><br><small>The way the cause came into existence.</small></td>
+                    <td>
+                        1. <strong>Natural:</strong> Terminal progression of disease states.<br>
+                        2. <strong>Unnatural:</strong> Explicitly split into <strong>Homicide</strong>, <strong>Suicide</strong>, or <strong>Accident</strong>.
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Pathological Definitions</strong><br><small>The mechanics of termination.</small></td>
+                    <td>
+                        • <strong>Cause of Death:</strong> The disease or injury initiating the unbroken path of events producing death. Separated into Immediate, Antecedent/Basic (actual pathology), and Contributory.<br>
+                        • <strong>Mechanism of Death:</strong> The physiological or biochemical disturbance produced by the cause that is incompatible with life (e.g., shock, ventricular fibrillation, sepsis, respiratory paralysis).
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- APPARENT DEATH / SUSPENDED ANIMATION -->
+        <h2>Apparent Death (Suspended Animation)</h2>
+        <p>A profound state where vital functions drop to such a low pitch that they cannot be detected by ordinary clinical examinations. Life continues, and resuscitation remains entirely viable. It occurs as <em>Voluntary</em> (practiced by yogis or sadhus) or <em>Involuntary</em> (spontaneous).</p>
+        <p><strong>Etiologies (@ABCDEF + extensions):</strong> Anaesthesia, Benzodiazepine overdose, deep Coma, Narcotic/barbiturate poisoning, Electrolyte derangements, profound Fall in temperature (&lt;32°C), Hysteria, Sunstroke, Drowning, and severe clinical infections like Typhoid or Cholera.</p>
+
+        <!-- POST-MORTEM CHANGES -->
+        <h2>Chronological Post-Mortem Changes</h2>
+        
+        <h3>I. Immediate Changes (Somatic Death)</h3>
+        <p>Characterized by complete insensibility, loss of voluntary power, cessation of respiration, and stoppage of circulation. Respiration and circulation must be confirmed absent via continuous auscultation for a minimum of 5 minutes.</p>
+
+        <h3>II. Early Post-Mortem Changes</h3>
+        <ul>
+            <li><strong>Changes in the Skin:</strong> Becomes pale, lustreless, and ashy-white; loses elasticity (which can transiently iron out wrinkles). Lips turn dark-red to black and harden due to desiccation. Cutis anserina (gooseflesh) may manifest.</li>
+            <li><strong>Ocular Signatures:</strong> Eyelids lose muscle tone and close. The cornea dries, clouding completely after 10–12 hours. <em>Tache Noire Sclerotique</em> (a triangular blackish-brown scleral band) appears within 8–10 hours if the eyes remain propped open. Intraocular tension plummets from normal (14–25 mmHg) to &lt;12 mmHg immediately, falling to 0 by 2 hours. Retinal vessels display segmentation of blood columns (trucking or <strong>Kevorkian's sign</strong>). Vitreous potassium shows a linear, steady rise.</li>
+            <li><strong>Algor Mortis (Post-Mortem Cooling):</strong> The body maintains temperature for the first 0.5 to 1 hour (the post-mortem plateau) due to residual glycogenolysis and bacterial metabolism. It then cools along a sigmoid/inverted-S curve at a rate of 0.4–0.6°C/hour for 12–16 hours.
+                <div class="highlight-box">
+                    $$\text{Time Since Death (Hours)} = \frac{\text{Normal Body Temperature} - \text{Rectal Temperature}}{\text{Rate of Fall per Hour}}$$
+                </div>
+                Conforms to <strong>Casper's Dictum for cooling media</strong>, where the relative cooling rates of Air : Water : Grave scale at a ratio of 2 : 4 : 1. Cooling is accelerated by thin builds, infancy, and active air movement, and delayed by heavy clothing or septicaemia.
+            </li>
+            <li><strong>Postmortem Caloricity:</strong> An anomalous rise in internal core temperature of up to 2°C during the first 2 hours post-mortem. Triggered by rapid glycogenolysis, active septicaemia, sunstroke, pontine hemorrhage, or strychnine/tetanus poisoning.</li>
+            <li><strong>Livor Mortis (Post-Mortem Lividity / Hypostasis):</strong> A purplish-red or bluish-purple discoloration forming in dependent areas of the skin and organs due to the gravitational settling of deoxyhemoglobin-bound blood. It shifts with position changes but becomes **permanently fixed by 6 hours**, refusing to blanch under pressure after 10–12 hours.
+                <ul>
+                    <li><em>Supine position:</em> Settles on the posterior aspect, sparing pressure contact points (occiput, scapulae, buttocks, heels).</li>
+                    <li><em>Prone position:</em> Anterior aspect; presents with tiny petechial spots (Tardieu's spots).</li>
+                    <li><em>Hanging position:</em> Stocking-and-glove distribution (legs, hands, external genitalia).</li>
+                    <li><em>Drowning:</em> Settles primarily on the face, upper chest, hands, and calves.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Diagnostic Color Shifts in Lividity</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Toxic/Environmental State</th>
+                    <th>Manifested Lividity Color</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Carbon Monoxide (CO) Poisoning</td><td>Cherry Red</td></tr>
+                <tr><td>Cyanide Poisoning</td><td>Bright Red</td></tr>
+                <tr><td>Hypothermia / Cold Exposure</td><td>Bright Pink</td></tr>
+                <tr><td>Asphyxia (Standard)</td><td>Deeply Bluish-Violet / Purple</td></tr>
+                <tr><td>Potassium Chlorate, Nitrites, Aniline</td><td>Chocolate Brown</td></tr>
+                <tr><td>Methaemoglobinaemia</td><td>Brownish</td></tr>
+                <tr><td>Phosphorus Poisoning</td><td>Dark-Brown or Yellow</td></tr>
+                <tr><td>Hydrogen Sulphide ($H_2S$)</td><td>Bluish-Green</td></tr>
+                <tr><td>Severe Anaemia</td><td>Pale Purple</td></tr>
+            </tbody>
+        </table>
+
+        <!-- MUSCLE CHANGES -->
+        <h2>The Tri-Phasic Muscle Progression</h2>
+        <p>Skeletal and cardiac muscle undergoes an orderly sequence: Primary Relaxation &rarr; Rigor Mortis &rarr; Secondary Relaxation.</p>
+        <ol>
+            <li><strong>Primary Relaxation (1–2 Hours):</strong> Complete flaccidity of all muscles. Somatic death has occurred, but molecular death has not; fibers remain reactive to external stimuli. <em>Zasko's Phenomenon:</em> Striking the quadriceps 10 cm above the patella induces a mechanical twitch response.</li>
+            <li><strong>Rigor Mortis (Post-Mortem Rigidity):</strong> Progressive cellular ATP depletion prevents the dissociation of actin and myosin filaments, causing calcium influx and locking fibers into a rigid actomyosin gel. It disappears only when putrefaction degrades the proteins.
+                <ul>
+                    <li><strong>Nysten's Rule of Anatomical Progression:</strong> Rigor tracks sequentially: Myocardium (1 hr) &rarr; Eyelids (3–4 hrs) &rarr; Face/Jaw (4–5 hrs) &rarr; Neck/Trunk (5–7 hrs) &rarr; Upper Extremities (7–9 hrs) &rarr; Legs (9–11 hrs) &rarr; Fingers/Toes (11–12 hrs).</li>
+                    <li><strong>The Rule of 12:</strong> Onset takes 1–2 hours, requires 12 hours to become fully established, remains fixed for 12 hours, and takes an additional 12 hours to pass off.</li>
+                </ul>
+            </li>
+            <li><strong>Secondary Relaxation:</strong> The flaccid state emerging as decomposition destroys the structural integrity of the locked muscle proteins.</li>
+        </ol>
+
+        <h3>Rigor Mortis Variations & False Signatures</h3>
+        <ul>
+            <li><strong>Cadaveric Spasm (Instantaneous Rigidity):</strong> Stiffening of a localized group of voluntary muscles immediately at the point of death, bypassing primary flaccidity. Associated with high emotional tension and intense muscular exertion at death. Medico-legally critical because it locks weapons in suicides, or grasps an assailant's clothing or environmental debris (weeds in drowning), preserving the exact mode of death.</li>
+            <li><strong>Heat Stiffening:</strong> Exposure to temperatures exceeding 65°C causes immediate coagulation of muscle proteins, forcing a rigid <strong>"pugilistic attitude"</strong> (seen in burns). True rigor mortis is completely bypassed.</li>
+            <li><strong>Cold Stiffening:</strong> Sub-zero freezing solidifies adipose tissue and intracellular fluids, mimicking rigor. It thaws upon re-warming, allowing true rigor mortis to subsequently develop.</li>
+            <li><strong>Gas Stiffening:</strong> False rigidity driven by bloating and the structural entrapment of decomposition gases within tissues.</li>
+        </ul>
+
+        <!-- DECOMPOSITION & LATER CHANGES -->
+        <h2>Late Changes: Decomposition & Tissue Modification</h2>
+        <p>Decomposition breaks down tissues via two parallel mechanisms: <strong>Autolysis</strong> (aseptic self-digestion via lysosomal enzymes, striking enzyme-rich organs like the pancreas and stomach lining first) and <strong>Putrefaction</strong> (bacterial degradation driven by <em>Clostridium welchii</em>, Staphylococci, and Streptococci).</p>
+
+        <h3>Chronology of Putrefaction</h3>
+        <ol>
+            <li><strong>Color & Marbling:</strong> A greenish-blue to black skin discoloration appears first in the right iliac fossa (due to sulfmethemoglobin formation) before spreading. <strong>Marbling</strong> (the map-like outlining of superficial vessels by hemolyzed blood reacting with $H_2S$) becomes prominent by 24 hours in summer and 36–48 hours in winter.</li>
+            <li><strong>Gaseous Inflation:</strong> Production of foul gases ($NH_3, H_2S, CO_2$, methane, mercaptans) creates structural bloating, putrefactive blisters, skin degloving, and post-mortem purging.</li>
+            <li><strong>Liquefaction Order:</strong> Tissues dissolve between days 5–10. Organs liquefy in a distinct anatomical hierarchy:
+                <div class="highlight-box" style="font-size: 0.85rem;">
+                    Larynx & Trachea &rarr; Stomach & Intestines &rarr; Liver & Lungs &rarr; Brain &rarr; Heart &rarr; Kidneys & Bladder &rarr; Prostate & Uterus &rarr; Bones
+                </div>
+            </li>
+            <li><strong>Entomological Colonization:</strong> <em>Musca domestica</em> deposits eggs within 18–36 hours, transforming to larvae/maggots by days 2–3, progressing to pupae by days 4–5, and hatching into adults 4–5 days later.</li>
+        </ol>
+
+        <p>The rate of putrefaction follows <strong>Casper's Dictum for decomposition media</strong>, where decay rates in Air : Water : Soil follow a ratio of 8 : 2 : 1 (burial in soil is 8 times slower than air exposure).</p>
+
+        <h3>Modified Decomposition States</h3>
+        <ul>
+            <li><strong>Adipocere Formation (Saponification):</strong> Putrefaction is altered in wet, warm, oxygen-depleted environments, converting adipose tissue into a soft, waxy substance through fat hydrolysis and hydrogenation. It concentrates in fat-heavy zones (breasts, buttocks, abdomen) and helps preserve facial features, allowing identification and cause of death estimation months later.</li>
+            <li><strong>Mummification (Desiccation):</strong> Putrefaction is halted by high temperatures, low humidity, and rapid air movement, causing rapid evaporation of body fluids. Tissues convert into a dark, hard, leathery, shriveled shell stretched tightly over bone, locking the body into an abducted arm and clenched fist stance.</li>
+        </ul>
+
+        <!-- POST-MORTEM INTERVAL ESTIMATION -->
+        <h2>Post-Mortem Interval (PMI) Cheat Sheet</h2>
+        <p>Estimating time since death requires cross-referencing multiple forensic markers:</p>
+        <ul>
+            <li><strong>Rigor Mortis:</strong> Onset 1–2 hours, full at 12 hours, passes at 36 hours.</li>
+            <li><strong>Livor Mortis:</strong> Patches appear at 30 min to 2 hours, fully maxed and fixed at 6–12 hours.</li>
+            <li><strong>Gastric Emptying:</strong> Light meal clears in 1–2 hours; medium meal in 3–4 hours; heavy meal takes 5–8 hours.</li>
+            <li><strong>Biochemical Kinetics:</strong>
+                <ul>
+                    <li><em>Vitreous Humour Potassium:</em> Measures 5–8 mmol/L at death, rising linearly at a rate of 0.17–0.238 mmol/L per hour.</li>
+                    <li><em>Cerebrospinal Fluid (CSF):</em> Potassium rises at a constant rate for the first 20 hours.</li>
+                    <li><em>Blood Chemistry:</em> Lactic acid jumps 50–75 fold within 12–24 hours; acid phosphatase spikes 20-fold by 48 hours.</li>
+                </ul>
+            </li>
+            <li><strong>Skeletal Degradation:</strong> Skeletonization takes days in hot, humid climates but 3–6 months if buried uncoffined. Bare bones decay in 5–10 years in hot environments, extending to 25–100 years in highly acidic soil.</li>
+        </ul>
+
+        <!-- ANTE-MORTEM VS POST-MORTEM WOUNDS -->
+        <h2>Ante-Mortem vs Post-Mortem Wounds</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Trait</th>
+                    <th>Ante-Mortem Wound</th>
+                    <th>Post-Mortem Wound</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Edges</strong></td>
+                    <td>Swollen, everted, retracted, and gaping wide.</td>
+                    <td>Closely approximated, tight, with zero gaping.</td>
+                </tr>
+                <tr>
+                    <td><strong>Haemorrhage &amp; Vitality</strong></td>
+                    <td>Abundant, active arterial bleeding with spurting marks.</td>
+                    <td>Slight or moderate, strictly venous oozing without pressure spurts.</td>
+                </tr>
+                <tr>
+                    <td><strong>Extravasation</strong></td>
+                    <td>Blood infiltrates tissues; staining cannot be washed away.</td>
+                    <td>Superficial artifactual stains that can be easily washed clean.</td>
+                </tr>
+                <tr>
+                    <td><strong>Coagulation</strong></td>
+                    <td>Firm, tightly organized, adherent blood clots.</td>
+                    <td>No clotting, or highly soft, friable, loose clots.</td>
+                </tr>
+                <tr>
+                    <td><strong>Enzyme Histochemistry</strong></td>
+                    <td>Spike in metabolic activity (esterases, ATP, amino-peptidase, acid/alkaline phosphatase).</td>
+                    <td>Completely diminished or absent enzyme activity.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- MISINTERPRETATIONS & SUDDEN DEATH -->
+        <h2>Forensic Pitfalls & Sudden Death Profiles</h2>
+
+        <h3>Decomposition Artefacts vs Real Pathology</h3>
+        <p>Misinterpreting normal putrefactive changes can severely compromise a medico-legal investigation:</p>
+        <ul>
+            <li>Post-mortem bloating can be misread as clinical obesity.</li>
+            <li>Post-mortem lividity is frequently confused with an ante-mortem contusion/bruise.</li>
+            <li>Post-mortem purging from the nose/mouth can be mistaken for an ante-mortem injury.</li>
+            <li>Skin slippage can easily mimic an abrasion.</li>
+            <li>Putrefactive gas blisters resemble true ante-mortem burn blisters.</li>
+            <li>Holes eroded through tissue by maggots can look like close-range gunshot wounds.</li>
+            <li>Post-mortem gastric wall autolysis can be misdiagnosed as a perforated ulcer.</li>
+            <li>Post-mortem flaccidity and vaginal/anal dilation can be mistaken for sexual assault.</li>
+        </ul>
+
+        <h3>Sudden / Unexpected Death Framework</h3>
+        <p>Defined as death occurring within 24 hours of terminal symptom onset in an individual not previously known to suffer from an active, dangerous disease or injury. Core systemic drivers include:</p>
+        <ul>
+            <li><strong>Cardiovascular:</strong> Coronary atherosclerosis with acute thrombosis, MI rupture, aortic aneurysm rupture, pulmonary embolism, or sudden vagal inhibition.</li>
+            <li><strong>Respiratory:</strong> Lobar or bronchopneumonia, acute glottic/pulmonary edema, tension pneumothorax, or acute asthma exacerbations.</li>
+            <li><strong>Central Nervous System:</strong> Massive intracerebral, cerebellar, or pontine hemorrhages; subarachnoid bleeds; meningitis; or sudden status epilepticus.</li>
+            <li><strong>Alimentary &amp; Genitourinary:</strong> Massive GI hemorrhage, acute hemorrhagic pancreatitis, strangulated hernia, ruptured ectopic pregnancy, or severe pregnancy toxemia.</li>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
