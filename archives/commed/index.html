@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Community Medicine</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Main Container */
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        /* Header Section */
+        .subject-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        /* Topics Layout */
+        .topic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .topic-row {
+            display: flex;
+            gap: 20px;
+            padding: 18px 0;
+            border-bottom: 1px dashed var(--border-color);
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.2s ease;
+        }
+
+        .topic-row:hover {
+            border-bottom-color: var(--accent-color);
+        }
+
+        .topic-title {
+            font-size: 1.2rem;
+            font-weight: 400;
+            transition: color 0.2s ease;
+        }
+
+        .topic-row:hover .topic-title {
+            color: var(--hover-color);
+        }
+
+        /* Footer */
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="subject-header">
+            <div class="breadcrumb"><a href="https://fidelioa.github.io/monolith/archives">Archives</a> / Community Medicine</div>
+            <h1>Community Medicine</h1>
+        </section>
+
+        <section class="content">
+            <div class="topic-list">
+                
+                <!-- Added Tuberculosis Chapter -->
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/tuberculosis" class="topic-row">
+                    <span class="topic-title">Tuberculosis Control &amp; Epidemiology</span>
+                </a>
+
+                <!-- Added Measles Chapter -->
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/measles" class="topic-row">
+                    <span class="topic-title">Measles Eradication Strategies</span>
+                </a>
+
+                <!-- Standard Community Medicine Core Pillars -->
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/principles-epidemiology" class="topic-row">
+                    <span class="topic-title">General Principles of Epidemiology</span>
+                </a>
+
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/communicable-diseases" class="topic-row">
+                    <span class="topic-title">Epidemiology of Communicable Diseases</span>
+                </a>
+
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/non-communicable" class="topic-row">
+                    <span class="topic-title">Non-Communicable Disease Surveillance</span>
+                </a>
+                
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/maternal-child-health" class="topic-row">
+                    <span class="topic-title">Maternal and Child Health Interventions</span>
+                </a>
+
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/demography-family-planning" class="topic-row">
+                    <span class="topic-title">Demography and Family Planning</span>
+                </a>
+                
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/nutrition-health" class="topic-row">
+                    <span class="topic-title">Public Health Nutrition</span>
+                </a>
+
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/environmental-health" class="topic-row">
+                    <span class="topic-title">Environmental Health and Sanitation</span>
+                </a>
+
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/biostatistics" class="topic-row">
+                    <span class="topic-title">Biostatistics and Data Management</span>
+                </a>
+
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/health-communication" class="topic-row">
+                    <span class="topic-title">Health Communication and Education</span>
+                </a>
+
+                <a href="https://fidelioa.github.io/monolith/archives/community-medicine/national-programs" class="topic-row">
+                    <span class="topic-title">National Health Programs &amp; Policies</span>
+                </a>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MONOLITH. Built to persist.</p>
+    </footer>
+
+</body>
+</html>
