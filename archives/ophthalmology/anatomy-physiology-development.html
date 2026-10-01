@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monolith — Ophthalmology Anatomy (Anatomy, Physiology and Development)</title>
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --accent-color: #888888;
+            --border-color: #222222;
+            --hover-color: #ffffff;
+            --font-mono: 'Courier New', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-family: var(--font-mono);
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto;
+        }
+
+        .page-header {
+            margin-bottom: 60px;
+        }
+
+        .breadcrumb {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .breadcrumb a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--hover-color);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--hover-color);
+            margin: 50px 0 20px 0;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 12px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #dddddd;
+            margin: 25px 0 10px 0;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            letter-spacing: 0.5px;
+        }
+
+        h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #cccccc;
+            margin: 15px 0 8px 0;
+        }
+
+        p {
+            color: #cccccc;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        ul, ol {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: #cccccc;
+            font-size: 0.95rem;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight-box {
+            background-color: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: #d4d4d4;
+            margin: 20px 0;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            color: #cccccc;
+            vertical-align: top;
+        }
+
+        tr:hover td {
+            color: var(--hover-color);
+            background-color: #111111;
+        }
+
+        .viva-note {
+            background-color: #161611;
+            border-left: 3px solid #cc9900;
+            padding: 15px;
+            margin: 25px 0;
+            font-size: 0.9rem;
+            color: #e5e5e5;
+        }
+        
+        .viva-note strong {
+            color: #fff;
+            font-family: var(--font-mono);
+        }
+
+        .question-list {
+            list-style-type: decimal;
+            padding-left: 20px;
+        }
+
+        .question-list li {
+            margin-bottom: 12px;
+            color: #cccccc;
+        }
+
+        .year-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            margin-left: 8px;
+        }
+
+        .diagram-container {
+            background: #111111;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            margin: 25px 0;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .diagram-container svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .diagram-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 100px auto 40px auto;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Monolith</div>
+        <ul class="nav-links">
+            <li><a href="https://fidelioa.github.io/monolith">Home</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/archives">Archives</a></li>
+            <li><a href="https://fidelioa.github.io/monolith/about">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="breadcrumb">
+                <a href="https://fidelioa.github.io/monolith/archives">Archives</a> / 
+                <a href="https://fidelioa.github.io/monolith/archives/ophthalmology/index.html">Ophthalmology</a> / Anatomy, Physiology &amp; Development
+            </div>
+            <h1>Anatomy, Physiology and Development of Eye</h1>
+            <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-color); margin-top: 5px;">Ophthalmology — Fast Track Clinical Science - TU Vol. 4 (4th Year) (pp. 375–388)</p>
+        </section>
+
+        <!-- PAST QUESTIONS -->
+        <h2>Past Questions</h2>
+        <ol class="question-list">
+            <li>Development of Lens. <span class="year-tag">[KU 2003, 2008]</span></li>
+            <li>Visual cycle. <span class="year-tag">[2000, 2003]</span></li>
+        </ol>
+
+        <!-- GENERAL DIMENSIONS -->
+        <h2>Dimensions &amp; General Measurements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th>Measurement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Anteroposterior diameter</strong></td>
+                    <td>24 mm</td>
+                </tr>
+                <tr>
+                    <td><strong>Horizontal diameter</strong></td>
+                    <td>23.5 mm</td>
+                </tr>
+                <tr>
+                    <td><strong>Vertical diameter</strong></td>
+                    <td>23 mm</td>
+                </tr>
+                <tr>
+                    <td><strong>Circumference</strong></td>
+                    <td>75 mm</td>
+                </tr>
+                <tr>
+                    <td><strong>Volume</strong></td>
+                    <td>6.5 ml</td>
+                </tr>
+                <tr>
+                    <td><strong>Weight</strong></td>
+                    <td>7 gm</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ANATOMY OF EYE -->
+        <h2>Anatomy of Eye</h2>
+        <p><strong>Eye:</strong> Organ of sight.</p>
+        <p><strong>Eyeball:</strong> It is a cystic structure kept distended by the pressure inside it.</p>
+        <ul>
+            <li><strong>Shape:</strong> Oblate spheroid</li>
+            <li><strong>Poles:</strong> The central point on the maximal convexities on the anterior and posterior curvatures of the eyeball is called the anterior and posterior pole respectively.</li>
+            <li><strong>Equator:</strong> Equator of eye lies at the midplane between two poles.</li>
+            <li>The bony orbit + fat &rarr; protect eyeball from injury.</li>
+        </ul>
+
+        <!-- DIAGRAM 1: POLES AND EQUATORS OF THE EYEBALL -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 300" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Eyeball Outer Ellipse -->
+                <ellipse cx="250" cy="150" rx="160" ry="120" fill="none" stroke="#888888" stroke-width="2"/>
+                <!-- Cornea Protrusion (Anterior Pole) -->
+                <path d="M 90 150 Q 70 150 90 150" fill="none" stroke="#888888" stroke-width="2"/>
+                
+                <!-- Axis Line (Antero-posterior) -->
+                <line x1="80" y1="150" x2="410" y2="150" stroke="#888888" stroke-width="1.5"/>
+                
+                <!-- Geometric Equator / Vertical Diameter -->
+                <ellipse cx="250" cy="150" rx="35" ry="120" fill="#222222" opacity="0.5" stroke="#888888" stroke-width="1.5"/>
+                <line x1="250" y1="30" x2="250" y2="270" stroke="#888888" stroke-width="1.5"/>
+
+                <!-- Transverse Diameter Ellipse -->
+                <ellipse cx="160" cy="150" rx="20" ry="80" fill="#333333" opacity="0.3" stroke="#888888" stroke-width="1" stroke-dasharray="3 3"/>
+                
+                <!-- Text Labels -->
+                <text x="250" y="20" fill="#ffffff" font-family="monospace" font-size="11" text-anchor="middle">Vertical diameter</text>
+                <text x="320" y="50" fill="#e5e5e5" font-family="monospace" font-size="11">Geometric equator</text>
+                <line x1="315" y1="52" x2="270" y2="70" stroke="#888888" stroke-width="1"/>
+                
+                <text x="320" y="90" fill="#e5e5e5" font-family="monospace" font-size="11">Transverse diameter</text>
+                <text x="320" y="120" fill="#e5e5e5" font-family="monospace" font-size="11">Antero-posterior diameter</text>
+                <text x="280" y="145" fill="#ffffff" font-family="monospace" font-size="11">Axis</text>
+
+                <text x="70" y="165" fill="#ffffff" font-family="monospace" font-size="11" text-anchor="end">Anterior pole</text>
+                <circle cx="80" cy="150" r="3" fill="#ffffff"/>
+                
+                <text x="420" y="155" fill="#ffffff" font-family="monospace" font-size="11">Posterior pole</text>
+                <circle cx="410" cy="150" r="3" fill="#ffffff"/>
+
+                <text x="320" y="220" fill="#e5e5e5" font-family="monospace" font-size="11">Meridian</text>
+            </svg>
+            <div class="diagram-title">Poles and Equators of the Eyeball</div>
+        </div>
+
+        <h3>Coats of Eyeball</h3>
+        <p>Consists of 3 coats:</p>
+        <ol>
+            <li>Outer fibrous layer / coat</li>
+            <li>Middle vascular layer / coat</li>
+            <li>Inner nervous layer / coat</li>
+        </ol>
+
+        <h4>i. Outer Fibrous Layer / Coat</h4>
+        <p>Dense strong wall which protects the intraocular contents.</p>
+        <ul>
+            <li>
+                <strong>a. Anterior 1/6<sup>th</sup> of the fibrous coat is transparent &rarr; Cornea:</strong>
+                <ul>
+                    <li>Transparent</li>
+                    <li>Ellipsoid anterior</li>
+                    <li>Constitutes 1/6<sup>th</sup> of eyeball</li>
+                    <li>Main refracting surface of eye</li>
+                    <li>Dioptric power: 43 – 45 diopter</li>
+                </ul>
+            </li>
+            <li>
+                <strong>b. Posterior 5/6<sup>th</sup> of the fibrous coat is opaque &rarr; Sclera:</strong>
+                <ul>
+                    <li>Cornea is set into sclera like watch glass.</li>
+                    <li>Junction between cornea and sclera: <strong>Limbus</strong>.</li>
+                    <li>Conjunctiva is firmly attached at the limbus.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>ii. Middle Vascular Coat (Uveal Tissue)</h4>
+        <p>Consists of three parts, from anterior to posterior: <strong>iris, ciliary body, and choroid</strong>.</p>
+        <p><em>Function:</em> Supplies nutrition to various structures of the eyeball.</p>
+        <ul>
+            <li>
+                <strong>Iris:</strong> Colored, free, circular diaphragm with an aperture in the center (pupil). Consists of endothelium, stroma, pigment cells, and two groups of plain muscle fibers: circular (sphincter pupillae) and radiating (dilator pupillae).
+            </li>
+            <li>
+                <strong>Ciliary Body:</strong> Triangular shape with base forward. Iris is attached to middle of its base. Consists of non-striated muscle fibers (ciliary muscles), stroma, and secretory epithelial cells. Consists of two main parts: <em>pars plicata</em> and <em>pars plana</em>.
+            </li>
+            <li>
+                <strong>Choroid:</strong> Dark brown, highly vascular layer situated between sclera and retina. Extends from ora serrata up to the aperture of optic nerve.
+            </li>
+        </ul>
+
+        <h4>iii. Inner Nervous Layer / Coat</h4>
+        <p><strong>Retina:</strong> Concerned with visual sensation and projects to visual cortex through the visual pathway.</p>
+        <ul>
+            <li>Composed of ten layers of different cells lying on pigmented epithelial layer.</li>
+            <li>Lines 3/4 of the eyeball from inside.</li>
+            <li>Has yellow spot i.e. <strong>Macula lutea</strong>: Most sensitive part of retina.</li>
+        </ul>
+
+        <!-- SEGMENTS & CHAMBERS -->
+        <h2>Segments and Chambers of Eyeball</h2>
+        <p>Divided into two segments:</p>
+
+        <h3>1. Anterior Segment</h3>
+        <p>Consists of crystalline lens and structures anterior to it viz., iris, cornea, and two chambers filled with aqueous humor (anterior chamber and posterior chamber).</p>
+
+        <!-- DIAGRAM 2: GROSS ANATOMY OF EYEBALL -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 600 350" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Eyeball Outer Profile -->
+                <path d="M 120 100 Q 80 175 120 250 C 200 320 400 320 480 250 C 530 175 480 100 480 100 C 400 30 200 30 120 100 Z" fill="none" stroke="#888888" stroke-width="2"/>
+                <!-- Cornea Front -->
+                <path d="M 120 100 Q 60 175 120 250" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+                
+                <!-- Lens -->
+                <ellipse cx="180" cy="175" rx="15" ry="40" fill="#222222" stroke="#ffffff" stroke-width="1.5"/>
+                
+                <!-- Iris -->
+                <line x1="165" y1="110" x2="175" y2="145" stroke="#888888" stroke-width="3"/>
+                <line x1="165" y1="240" x2="175" y2="205" stroke="#888888" stroke-width="3"/>
+
+                <!-- Optic Nerve back -->
+                <path d="M 460 150 L 550 130 M 460 200 L 550 220" stroke="#888888" stroke-width="2"/>
+
+                <!-- Labels & Pointers -->
+                <text x="50" y="175" fill="#ffffff" font-family="monospace" font-size="10">Cornea</text>
+                <text x="140" y="175" fill="#ffffff" font-family="monospace" font-size="10">Pupil</text>
+                <text x="110" y="130" fill="#e5e5e5" font-family="monospace" font-size="9">Anterior chamber</text>
+                <text x="180" y="120" fill="#ffffff" font-family="monospace" font-size="10">Lens</text>
+                <text x="140" y="90" fill="#e5e5e5" font-family="monospace" font-size="9">Conjunctiva</text>
+                <text x="160" y="70" fill="#e5e5e5" font-family="monospace" font-size="9">Ciliary body</text>
+                <text x="210" y="50" fill="#e5e5e5" font-family="monospace" font-size="9">Ora serrata</text>
+                <text x="270" y="40" fill="#e5e5e5" font-family="monospace" font-size="9">Medial rectus</text>
+
+                <text x="500" y="80" fill="#e5e5e5" font-family="monospace" font-size="9">Retina</text>
+                <text x="500" y="100" fill="#e5e5e5" font-family="monospace" font-size="9">Choroid</text>
+                <text x="500" y="120" fill="#e5e5e5" font-family="monospace" font-size="9">Sclera</text>
+                <text x="560" y="175" fill="#ffffff" font-family="monospace" font-size="10">Optic nerve</text>
+                <text x="490" y="230" fill="#e5e5e5" font-family="monospace" font-size="9">Fovea</text>
+                <text x="350" y="320" fill="#e5e5e5" font-family="monospace" font-size="9">Lateral rectus</text>
+            </svg>
+            <div class="diagram-title">Gross Anatomy of the Eyeball</div>
+        </div>
+
+        <h4>a. Anterior Chamber</h4>
+        <ul>
+            <li><strong>Boundary:</strong>
+                <ul>
+                    <li>Anteriorly: Back of cornea</li>
+                    <li>Posteriorly: Anterior surface of iris and part of ciliary body</li>
+                </ul>
+            </li>
+            <li><strong>Dimensions:</strong>
+                <ul>
+                    <li>Depth: 2.5 mm in the center in normal adults (shallower in hypermetropes, deeper in myopes; almost equal in two eyes of same individual).</li>
+                    <li>Contains: 0.25 ml of aqueous humor.</li>
+                    <li>Communicates with posterior chamber through the pupil.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h4>b. Posterior Chamber</h4>
+        <p>Triangular space.</p>
+        <ul>
+            <li><strong>Boundary:</strong>
+                <ul>
+                    <li>Anteriorly: Posterior surface of iris and part of ciliary body</li>
+                    <li>Posteriorly: Crystalline lens and its zonules</li>
+                    <li>Laterally: Ciliary body</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2. Posterior Segment</h3>
+        <p>Consists of structures posterior to lens viz., vitreous humor (a gel-like material filling space behind lens), retina, choroid, and optic disc.</p>
+
+        <h3>Lens</h3>
+        <ul>
+            <li>Transparent, circular, biconvex structure lying immediately behind pupil.</li>
+            <li>Suspended from ciliary body by the suspensory ligament (zonules of Zinn).</li>
+            <li>Enclosed within a transparent capsule.</li>
+        </ul>
+
+        <!-- ACCESSORY STRUCTURES -->
+        <h2>Accessory Structures of the Eye</h2>
+        <p>The eye is supported by several accessory structures (appendages):</p>
+        <ul>
+            <li><strong>Eyebrows:</strong> Arched ridges (2 in number) of supraorbital margin of frontal bone with hair projecting obliquely to protect eyeball from sweat, dust, and foreign bodies.</li>
+            <li><strong>Eyelids and Eyelashes:</strong> Movable folds of tissue situated above and below front of each eye with eyelashes on free edges.</li>
+            <li><strong>Lacrimal Apparatus:</strong> Consists of lacrimal gland and its ducts, accessory lacrimal glands, lacrimal canaliculi, lacrimal sac, and nasolacrimal duct.</li>
+            <li><strong>Extraocular Muscles:</strong> 6 extrinsic muscles (4 recti and 2 oblique muscles) attached to eyeball and orbital wall. Voluntary control for looking in specific directions; autonomic control for convergence and accommodation.</li>
+        </ul>
+
+        <!-- EXTRAOCULAR MUSCLES TABLE -->
+        <h2>Extraocular Muscles &amp; Movements</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Muscles</th>
+                    <th>Movement of Eyeball</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Medial rectus</strong></td>
+                    <td>Inward (Adduction)</td>
+                </tr>
+                <tr>
+                    <td><strong>Lateral rectus</strong></td>
+                    <td>Outward (Abduction)</td>
+                </tr>
+                <tr>
+                    <td><strong>Superior rectus</strong></td>
+                    <td>Upward (Elevation)</td>
+                </tr>
+                <tr>
+                    <td><strong>Inferior rectus</strong></td>
+                    <td>Downward (Depression)</td>
+                </tr>
+                <tr>
+                    <td><strong>Superior oblique</strong></td>
+                    <td>Downward and outward (Intorsion, depression)</td>
+                </tr>
+                <tr>
+                    <td><strong>Inferior oblique</strong></td>
+                    <td>Upward and outward (Extorsion, elevation)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- BLOOD SUPPLY -->
+        <h2>Blood Supply of the Eye</h2>
+
+        <h3>A. Arterial Supply</h3>
+        <p>Main source is <strong>ophthalmic artery</strong>, a branch of internal carotid artery.</p>
+        <ul>
+            <li><strong>Branches supplying eyeballs:</strong>
+                <ol>
+                    <li>Short posterior ciliary arteries (about 20 in number)</li>
+                    <li>Long posterior ciliary arteries (2 in number)</li>
+                    <li>Central retinal artery</li>
+                </ol>
+            </li>
+        </ul>
+
+        <h3>B. Venous Drainage</h3>
+        <ul>
+            <li><strong>Veins draining blood from eyeball:</strong>
+                <ul>
+                    <li>Central retinal vein (drains blood from retina)</li>
+                    <li>Anterior ciliary veins, short posterior ciliary veins, and 4 venae vorticosae (vortex veins) drain uveal tissue</li>
+                </ul>
+            </li>
+            <li><strong>Main venous channels receiving tributaries:</strong>
+                <ul>
+                    <li>Superior ophthalmic vein</li>
+                    <li>Inferior ophthalmic vein</li>
+                    <li>Middle ophthalmic vein</li>
+                    <li>Medial ophthalmic vein</li>
+                    <li>Angular vein</li>
+                    <li>Cavernous sinus</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- DIAGRAM 3: BLOOD SUPPLY OF THE EYE -->
+        <div class="diagram-container">
+            <svg viewBox="0 0 500 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                <!-- Arterial Circle Schematic -->
+                <circle cx="100" cy="110" r="40" fill="none" stroke="#888888" stroke-width="2"/>
+                <text x="100" y="113" fill="#ffffff" font-family="monospace" font-size="9" text-anchor="middle">Minor Circle</text>
+                
+                <circle cx="100" cy="110" r="70" fill="none" stroke="#888888" stroke-width="2"/>
+                <text x="100" y="32" fill="#e5e5e5" font-family="monospace" font-size="9" text-anchor="middle">Major arterial circle of iris</text>
+
+                <!-- Inflowing Vessel Lines -->
+                <line x1="170" y1="110" x2="300" y2="40" stroke="#888888" stroke-width="1.5"/>
+                <text x="310" y="40" fill="#e5e5e5" font-family="monospace" font-size="10">Anterior ciliary artery</text>
+
+                <line x1="170" y1="110" x2="300" y2="110" stroke="#888888" stroke-width="1.5"/>
+                <text x="310" y="113" fill="#e5e5e5" font-family="monospace" font-size="10">Long posterior ciliary artery</text>
+
+                <line x1="170" y1="110" x2="300" y2="180" stroke="#888888" stroke-width="1.5"/>
+                <text x="310" y="180" fill="#e5e5e5" font-family="monospace" font-size="10">Short posterior ciliary artery</text>
+            </svg>
+            <div class="diagram-title">Blood Supply Schema of the Eye</div>
+        </div>
+
+        <!-- NERVE SUPPLY -->
+        <h2>Nerve Supply to the Eye</h2>
+
+        <h3>A. Sensory Supply</h3>
+        <p><strong>Ophthalmic Nerve:</strong> Smallest division of trigeminal (5th cranial) nerve. Supplies structures via 3 main branches:</p>
+        <ol>
+            <li><strong>Lacrimal nerve:</strong> Lies in lateral part of orbit; supplies lacrimal gland, conjunctiva, and lateral part of upper eyelid.</li>
+            <li><strong>Frontal nerve:</strong> Divides into two branches:
+                <ul>
+                    <li><em>Supratrochlear nerve:</em> Supplies conjunctiva, middle part of upper eyelid, skin of forehead above nose root.</li>
+                    <li><em>Supraorbital nerve:</em> Supplies conjunctiva, central part of upper eyelid, skin of forehead and scalp.</li>
+                </ul>
+            </li>
+            <li><strong>Nasociliary nerve:</strong> Branches include:
+                <ul>
+                    <li><em>Long ciliary nerves (2 in number):</em> Pierce sclera near optic nerve &rarr; run between sclera and choroid &rarr; supply ciliary body, iris, and cornea.</li>
+                    <li><em>Communicating branches to ciliary ganglion:</em> Sensory root; fibers pass along short ciliary nerve to supply ciliary body, iris, and cornea.</li>
+                    <li><em>Posterior ethmoidal nerve:</em> Supplies ethmoidal and sphenoidal sinuses.</li>
+                    <li><em>Anterior ethmoidal nerve:</em> Terminal branch; leaves orbit via anterior ethmoidal foramen.</li>
+                    <li><em>Infratrochlear nerve:</em> Terminal branch; supplies conjunctiva, lacrimal sac, caruncle, and medial eyelids.</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>B. Motor Supply</h3>
+        <ul>
+            <li><strong>3rd Cranial Nerve (Oculomotor):</strong>
+                <ul>
+                    <li><em>Superior division:</em> Levator palpebrae superioris, Superior rectus.</li>
+                    <li><em>Inferior division:</em> Medial rectus, Inferior rectus, Inferior oblique (also branch to ciliary ganglion).</li>
+                </ul>
+            </li>
+            <li><strong>4th Cranial Nerve (Trochlear):</strong> Superior oblique muscle.</li>
+            <li><strong>6th Cranial Nerve (Abducens):</strong> Lateral rectus muscle.</li>
+            <li><strong>7th Cranial Nerve (Facial):</strong> Orbicularis oculi muscle.</li>
+        </ul>
+
+        <div class="viva-note">
+            <strong>Ciliary Ganglion Notes:</strong>
+            <p>Peripheral parasympathetic ganglion placed in the course of oculomotor nerve near apex of orbit.</p>
+
+            <ul>
+                <li><strong>Sensory Root:</strong> Comes from nasociliary nerve.</li>
+                <li><strong>Sympathetic Root:</strong> Comes from internal carotid plexus (does not relay here, passes via short ciliary nerves to blood vessels).</li>
+                <li><strong>Parasympathetic Root:</strong> Arises from nerve to inferior oblique muscle; carries preganglionic fibers from Edinger-Westphal nucleus which relay here to supply sphincter pupillae and ciliary muscle.</li>
+            </ul>
+        </div>
+
+        <h3>C. Autonomic Supply</h3>
+        
+        <h4>1. Parasympathetic Supply</h4>
+        <ul>
+            <li><strong>Edinger-Westphal nucleus (midbrain):</strong> Preganglionic fibers via 3rd CN &rarr; Ciliary ganglion &rarr; Postganglionic fibers via short ciliary nerves &rarr; Ciliary muscle &amp; Sphincter pupillae.</li>
+            <li><strong>Salivatory nucleus (pons):</strong> Preganglionic fibers via 7th CN &rarr; Sphenopalatine ganglion &rarr; Postganglionic secretomotor fibers via Lacrimal nerve &rarr; Lacrimal gland.</li>
+        </ul>
+
+        <h4>2. Sympathetic Supply</h4>
+        <p><strong>Ciliospinal center of Budge</strong> (located in intermediolateral cell column of spinal cord at C8, T1, and T2 levels) &rarr; Preganglionic fibers &rarr; Cervical sympathetic chain &rarr; Superior cervical ganglion &rarr; Postganglionic fibers enter skull with internal carotid plexus to supply:</p>
+        <ul>
+            <li>Orbital arteries (vasomotor via ophthalmic artery plexus)</li>
+            <li>Dilator pupillae muscle (via Gasserian ganglion / long ciliary nerves)</li>
+            <li>Blood vessels inside the eyeball (via short ciliary nerves)</li>
+            <li>Müller's muscle of eyelid (via cavernous plexus &amp; 3rd CN branches)</li>
+        </ul>
+
+        <!-- LYMPHATIC DRAINAGE -->
+        <h2>Lymphatic Drainage</h2>
+        <p>Lymphatics draining eyelids, conjunctiva, and orbital tissues are arranged in two groups:</p>
+        <ul>
+            <li><strong>Medial group:</strong> Drains into submandibular lymph nodes.</li>
+            <li><strong>Lateral group:</strong> Drains into preauricular / sub-auricular lymph nodes.</li>
+        </ul>
+
+        <!-- EMBRYOLOGY OF EYE -->
+        <h2>Embryology of Eye</h2>
+        <p>Development commences around <strong>day 22</strong> (embryo has 8 pairs of somites, length ~2 mm).</p>
+
+        <h3>Primordia Origin</h3>
+        <ul>
+            <li><strong>Optic vesicle:</strong> Outgrowth of prosencephalon (neuroectodermal).</li>
+            <li><strong>Lens placode:</strong> Specialized area of surface ectoderm.</li>
+            <li>Mesenchyme surrounding optic vesicle.</li>
+            <li>Visceral mesoderm of maxillary process.</li>
+        </ul>
+
+        <h3>Developmental Overview</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Structures</th>
+                    <th>Developmental Process</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Optic vesicle and Optic stalk</strong></td>
+                    <td>Linear thickened area on prosencephalic neural plate forms optic sulcus &rarr; bulges out as optic vesicle. Proximal part constricts and elongates into optic stalk.</td>
+                </tr>
+                <tr>
+                    <td><strong>Lens placode and Lens vesicle</strong></td>
+                    <td>Optic vesicle contacts surface ectoderm &rarr; ectoderm thickens to form lens placode &rarr; sinks below surface to form lens vesicle &rarr; separates from surface ectoderm at 33rd day of gestation.</td>
+                </tr>
+                <tr>
+                    <td><strong>Optic cup</strong></td>
+                    <td>Optic vesicle converts into double-layered optic cup due to invagination by developing lens and differential wall growth. Margins enclose lens.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- OPTIC NERVE DEVELOPMENT -->
+        <h2>Development of Optic Nerve</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Framework</th>
+                    <th>Development</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Optic nerve fibers</strong></td>
+                    <td>Develop from nerve fiber layer of retina; grow into optic stalk passing through choroidal fissure (by 6th week of gestation) posteriorly to brain.</td>
+                </tr>
+                <tr>
+                    <td><strong>Glial system</strong></td>
+                    <td>Develops from neuroectodermal cells forming outer wall of optic stalk. Glial septa composed from inner wall.</td>
+                </tr>
+                <tr>
+                    <td><strong>Sheath of Optic Nerve</strong></td>
+                    <td>Developed from layers of mesenchyme surrounding optic nerve (like meninges of CNS).</td>
+                </tr>
+                <tr>
+                    <td><strong>Myelination</strong></td>
+                    <td>Takes place from brain distally; reaches lamina cribrosa just before birth and stops. (Extension beyond disc appears postnatally as congenital opaque nerve fibers).</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- CRYSTALLINE LENS DEVELOPMENT -->
+        <h2>Development of Crystalline Lens <span class="year-tag">[KU 2003, 2008]</span></h2>
+        <p>Develops from <strong>surface ectoderm</strong> under the following stages:</p>
+
+        <h3>1. Primary Lens Fibers</h3>
+        <p>Cells of posterior wall of lens vesicle elongate rapidly to form primary lens fibers, obliterating cavity of lens vesicle. Preserved up to 3rd month of gestation as <strong>embryonic nucleus</strong>.</p>
+
+        <h3>2. Secondary Lens Fibers</h3>
+        <p>Formed from equatorial cells of anterior epithelium throughout life. Concentric lamination pattern created. Named based on developmental timing:</p>
+        <ul>
+            <li><strong>Fetal nucleus:</strong> 3rd to 8th month</li>
+            <li><strong>Infantile nucleus:</strong> Last week of fetal life to puberty</li>
+            <li><strong>Adult nucleus:</strong> After puberty</li>
+            <li><strong>Cortex:</strong> Superficial lens fibers of adult lens</li>
+        </ul>
+
+        <h3>3. Lens Capsule</h3>
+        <p>True basement membrane developed from lens epithelium on its external aspect.</p>
+
+        <!-- EMBRYONIC DERIVATION SUMMARY TABLE -->
+        <h2>Summary: Ocular Structures Derived from Embryonic Layers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Embryonic Layer</th>
+                    <th>Derived Ocular Structures</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Surface Ectoderm</strong></td>
+                    <td>
+                        1. Crystalline lens<br>
+                        2. Epithelium of cornea<br>
+                        3. Epithelium of conjunctiva<br>
+                        4. Lacrimal gland &amp; ducts<br>
+                        5. Epithelium of eyelids, cilia, tarsal glands, conjunctival glands<br>
+                        6. Epithelium lining lacrimal apparatus
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Neural Ectoderm</strong></td>
+                    <td>
+                        1. Retina with retinal pigment epithelium<br>
+                        2. Epithelial layers of ciliary body<br>
+                        3. Epithelial layers of iris<br>
+                        4. Sphincter and dilator pupillae muscles<br>
+                        5. Optic nerve (neuroglia and nervous elements)<br>
+                        6. Melanocytes<br>
+                        7. Secondary vitreous<br>
+                        8. Ciliary zonules (tertiary vitreous)
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Associated Paraxial Mesenchyme</strong></td>
+                    <td>
+                        1. Blood vessels of choroid, iris, ciliary body, central retinal artery<br>
+                        2. Primary vitreous<br>
+                        3. Substantia propria (stroma), Descemet's membrane, endothelium of cornea<br>
+                        4. Sclera<br>
+                        5. Stroma of iris &amp; ciliary body<br>
+                        6. Ciliary muscle<br>
+                        7. Sheaths of optic nerve<br>
+                        8. Extraocular muscles<br>
+                        9. Orbital fat, ligaments, and orbital walls
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Visceral Mesoderm (Maxillary Process)</strong></td>
+                    <td>
+                        1. Lower and lateral walls of orbit<br>
+                        2. Connective tissue of lower eyelid
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- FEATURES AT BIRTH -->
+        <h2>Features of Eye at Birth &amp; Postnatal Development</h2>
+        
+        <h3>At Birth</h3>
+        <ol>
+            <li>Anteroposterior diameter: ~16.5 mm (70% of adult size; adult size reached by 7–8 years).</li>
+            <li>Corneal diameter: ~10 mm (adult size 11.7 mm reached by 2 years).</li>
+            <li>Anterior chamber: Shallow with narrow angle.</li>
+            <li>Pupil: Small, does not dilate fully.</li>
+            <li>Lens: Spherical; infantile nucleus present.</li>
+            <li>Retina: Fully differentiated except macula (macula differentiates at 4–6 months postnatally).</li>
+            <li>Optic nerve myelination: Reached lamina cribrosa.</li>
+            <li>Refractive status: Hypermetropic by +2 to +3 D.</li>
+            <li>Orbit: Underdeveloped; tear secretion absent.</li>
+        </ol>
+
+        <h3>Postnatal Period</h3>
+        <ul>
+            <li>Fixation develops in 1st month; completed by 6 months.</li>
+            <li>Macula fully developed by 4–6 months.</li>
+            <li>Fusional reflexes, stereopsis, and accommodation mature by 4–6 months.</li>
+            <li>Cornea reaches adult size by 2 years.</li>
+            <li>Lens grows continuously throughout life.</li>
+        </ul>
+
+        <!-- PHYSIOLOGY OF VISION -->
+        <h2>Physiology of Eye &amp; Vision</h2>
+
+        <h3>Phototransduction</h3>
+        <p>Initiation of vision in photoreceptors (rods and cones):</p>
+        
+        <div class="highlight-box">
+            Incident Light &rarr; Structural change in photopigment &rarr; Activation of transducin &rarr; Activation of phosphodiesterase &rarr; Decreased intracellular cGMP &rarr; Closure of Na<sup>+</sup> channels &rarr; Hyperpolarization &rarr; Decreased release of synaptic transmitter &rarr; Response in bipolar cells.
+        </div>
+
+        <h3>Visual Cycle <span class="year-tag">[2000, 2003]</span></h3>
+        <p>Rhodopsin consists of opsin coupled with 11-cis-retinal (max absorption ~500 nm). Light bleaches rhodopsin into all-trans-retinal + opsin. Regeneration occurs in dark/light equilibrium.</p>
+
+        <div class="highlight-box">
+            <strong>Rhodopsin Bleaching Cascade:</strong><br>
+            Rhodopsin &rarr; Bathorhodopsin &rarr; Lumirhodopsin &rarr; Metarhodopsin I &rarr; Metarhodopsin II &rarr; All-trans-retinal + Opsin.
+        </div>
+
+        <h3>Visual Perception Components</h3>
+        <ol>
+            <li>
+                <strong>Light Sense:</strong> Minimum brightness to evoke visual sensation. Tested after 20–30 mins dark adaptation.
+                <ul>
+                    <li><em>Dark adaptation curve:</em> Biphasic—initial small curve (cone adaptation) + secondary curve (rod adaptation). Delayed in Retinitis Pigmentosa and Vitamin A deficiency.</li>
+                    <li><em>Light adaptation:</em> Rapid process occurring within 5 minutes.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Form Sense:</strong> Ability to discriminate shapes (cones at fovea). Measured via Snellen's chart.
+            </li>
+            <li>
+                <strong>Sense of Contrast:</strong> Ability to perceive slight luminance differences. Measured using Pelli-Robson chart, Arden grating, etc.
+            </li>
+            <li>
+                <strong>Color Sense:</strong> Mediated by cones (Young-Helmholtz Trichromatic Theory):
+                <ul>
+                    <li><em>Red sensitive (Erythrolabe / LWS):</em> Peak 565 nm</li>
+                    <li><em>Green sensitive (Chlorolabe / MWS):</em> Peak 535 nm</li>
+                    <li><em>Blue sensitive (Cyanolabe / SWS):</em> Peak 420–440 nm</li>
+                </ul>
+            </li>
+        </ol>
+
+        <!-- HIGH-YIELD ONE-LINERS -->
+        <h2>High-Yield Review / One-Liners</h2>
+        <div class="viva-note">
+            <ul>
+                <li>Nasolacrimal duct opens into the <strong>inferior meatus</strong>; contains <strong>Valve of Hasner</strong> at lower end.</li>
+                <li>Orbital volume is <strong>30 cc</strong>.</li>
+                <li>Thinnest wall of orbit: <strong>Medial wall</strong>. Thickest wall: <strong>Lateral wall</strong>.</li>
+                <li>Normal A:V ratio of retinal blood vessels is <strong>2:3</strong>.</li>
+                <li>'Safe zone' of eyeball is <strong>8–9 mm behind limbus</strong>.</li>
+                <li>Yoke muscle for Right Superior Rectus is <strong>Left Inferior Oblique</strong>.</li>
+                <li>Short posterior ciliary arteries are <strong>20</strong> in number.</li>
+                <li>Muscle in lid attached to posterior tarsal margin with sympathetic innervation: <strong>Müller's muscle</strong>.</li>
+                <li>Most sensitive part of eye: <strong>Fovea centralis</strong>.</li>
+                <li>Volume of vitreous: <strong>4 ml</strong>.</li>
+                <li>Only structure continuing growth throughout life: <strong>Lens</strong>.</li>
+                <li>Horner's muscle is the lacrimal part of <strong>Orbicularis oculi</strong>.</li>
+                <li>All visual reflexes are developed by <strong>1 year</strong>.</li>
+                <li>Corneal endothelial cell count done by <strong>Specular microscopy</strong>.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Monolith Academic Archives — Fast Track Clinical Science Series</p>
+    </footer>
+
+</body>
+</html>
